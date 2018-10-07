@@ -1,0 +1,34 @@
+{
+  "name": "bookbag",
+  "version": "1.0.0",
+  "description": "Node.js/React.js-based research assistant application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatLibWilk/bookbag.git"
+  },
+  "author": "Andrew Wilk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatLibWilk/bookbag/issues"
+  },
+  "homepage": "https://github.com/CatLibWilk/bookbag#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "mysql2": "^1.6.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.0.4",
+    "sequelize-cli": "^4.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4"
+  }
+}
