@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+
+import CreateNote from "./pages/CreateNote";
+import EditNote from "./pages/EditNote";
+import HomePage from "./pages/HomePage";
+import MainPage from "./pages/MainPage";
+import SearchResults from "./pages/SearchResults";
+import Signin from "./pages/SignIn";
+import NoMatch from "./pages/NoMatch";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Signin} />
+            <Route exact path="/homepage" component={HomePage} />
+            <Route exact path="/mainpage" component={MainPage} />
+            <Route exact path="/searchresults" component={SearchResults} />
+            <Route exact path="/createnote" component={CreateNote} />
+            <Route exact path="/editnote" component={EditNote} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      </Router>
+        
       </div>
     );
   }
