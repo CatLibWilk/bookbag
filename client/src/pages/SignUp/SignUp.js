@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { Redirect, Link } from "react-router-dom";
 import API from "../../utils/API";
 
-class SignIn extends Component {
+class SignUp extends Component {
   state = {
     username: "",
     password: ""
@@ -42,14 +42,14 @@ class SignIn extends Component {
               <div className="form-group">
                 <label>Email address</label>
                 <input type="username" className="form-control" id="input-email" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleInput}></input>
-                
+                <small id="emailHelp" className="form-text text-muted">You'll use this as your username.</small>
               </div>
               <div className="form-group">
                 <label>Password</label>
                 <input type="password" className="form-control" id="input-password" placeholder="Password" onChange={this.handleInput}></input>
               </div>
               
-              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Log In</button>
+              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Sign Up</button>
             </form>
             </div>
           </div>
@@ -59,4 +59,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignUp;

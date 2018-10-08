@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import MainPage from "./pages/MainPage";
 import SearchResults from "./pages/SearchResults";
 import Signin from "./pages/SignIn";
+import Signup from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Signin} />
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/homepage" component={HomePage} />
             <Route exact path="/mainpage" component={MainPage} />
             <Route exact path="/searchresults" component={SearchResults} />
