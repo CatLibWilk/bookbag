@@ -24,7 +24,9 @@ module.exports = function(){
     passport.use(
       "local-signup",
         new LocalStrategy(
+          
         function(username, password, done) {
+          console.log('passport.js local-signup runngin')
             User.findOne({ where: { username: username } }).then(function(user) {
                 if (user) {
                   return done(null, false, {
@@ -51,4 +53,31 @@ module.exports = function(){
               });
         }
     ))
+    passport.use(
+      "local-signin",
+      new LocalStrategy(
+        {passReqToCallback: true},
+        function(req, username, password, done) {
+  
+          User.findOne({ where: { username: username } })
+            .then(function(user) {
+              console.log(user)
+              if (!user) {
+                return done(null, false, { message: "Email does not exist" });
+              }
+  
+              // var userinfo = user.get();
+
+              return done(null, userinfo);
+            })
+            .catch(function(err) {
+              console.log("Error:", err);
+  
+              return done(null, false, {
+                message: "Something went wrong with your Signin"
+              });
+            });
+        }
+      )
+    );
 }

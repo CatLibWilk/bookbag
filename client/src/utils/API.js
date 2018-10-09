@@ -2,10 +2,10 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  signin: function(signinInfo) {
-    console.log('call reached util')
+  signup: function(signinInfo) {
+    console.log('call reached util signup')
     console.log(signinInfo)
-    return axios.post("/api/signin", signinInfo);
+    return axios.post("/auth/signup", signinInfo);
   },
 
   login: function(loginInfo) {

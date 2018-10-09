@@ -20,15 +20,16 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    API.signin({
+    API.signup({
       username: this.state.username,
       password: this.state.password
     })
-      .then(result => {
-        console.log(result);
-    
-        //want a redirect here but havent been able to figure it out yet//
-      })
+    .then(result => {
+        this.setState({toHomePage: true})
+      
+  
+      //want a redirect here but havent been able to figure it out yet//
+    })
   }
 
   render() {

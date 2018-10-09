@@ -61,6 +61,12 @@ class SignIn extends Component {
               </div>
               
               <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Log In</button>
+
+              <Link to={'/signup'}>
+              <button type="submit" className="btn btn-primary">Sign up</button>
+              </Link>
+              
+         
             </form>
             </div>
           </div>
