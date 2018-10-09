@@ -19,9 +19,10 @@ class SignIn extends Component {
     });
   }
 
+
   handleSubmit = (e) => {
     e.preventDefault();
-    API.signin({
+    API.login({
       username: this.state.username,
       password: this.state.password
     })
@@ -36,7 +37,8 @@ class SignIn extends Component {
         //want a redirect here but havent been able to figure it out yet//
       })
   }
-
+  
+  
   render() {
     if(this.state.toHomePage === true){
       return <Redirect to={'/homepage'} />

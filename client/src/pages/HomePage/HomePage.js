@@ -11,6 +11,7 @@ class HomePage extends Component {
       <div>
         <Jumbotron />
         <Navbar />
+        
       </div>
       )
   }

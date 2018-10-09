@@ -1,4 +1,5 @@
 const db = require("../models");
+const passport = require("passport")
 
 module.exports = {
     create: (req, res) => {
@@ -19,5 +20,12 @@ module.exports = {
                 res.send("already reg");
             }
         })
+    },
+    login: (req, res) => {
+        console.log(req.body)
+        console.log("controller reached login")
+        passport.authenticate('local-signup', { successRedirect: '/homepage',
+                                            failureRedirect: '/',
+                                            failureFlash: true })
     }
 }
