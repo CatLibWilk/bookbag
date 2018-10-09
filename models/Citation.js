@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Citation.associate = function(models) {
       models.Citation.hasMany(models.Note);
-      models.Citation.belongsTo(models.User, {
+      models.Citation.belongsTo(models.Cluster, {
         foreignKey: {
           allowNull: false
         },

@@ -20,8 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-      models.User.hasMany(models.Note);
-      models.User.hasMany(models.Citation);
+      models.User.hasMany(models.Cluster);
     };
 
     

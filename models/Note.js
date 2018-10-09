@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
       Note.associate = function(models) {
-        models.Note.belongsTo(models.User, {
+        models.Note.belongsTo(models.Cluster, {
           foreignKey : {
             allowNull: false
           },
