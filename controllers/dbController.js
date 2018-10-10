@@ -14,11 +14,13 @@ module.exports = {
     },
 
     getCluster: function(req, res) {
-        console.log(`getting cluster ${req.params.id} in bdController for mainpage`);
-        db.Cluster.findOne({
+        console.log(`getting children of cluster ${req.params.id} in bdController for mainpage`);
+        db.Citation.findOne({
             where: {
-                id: req.params.id
+                ClusterId: req.params.id
             }
+            //I think i need to either do an async call to both citations and notes, or somehow tell it to get all citations
+            //assocated with a cluster AND all the notes associated with that citation
         }).then(dbCluster => {
             console.log(dbCluster)
             res.json(dbCluster)

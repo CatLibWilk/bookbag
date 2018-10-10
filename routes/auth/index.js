@@ -13,14 +13,20 @@ const passportSetup = require("../../config/Passport/passport.js")
 //   failureRedirect: '/'}));
 
 router.route("/login")
-  .post(passport.authenticate('local-signin', { successRedirect: '/homepage',
-  failureRedirect: '/'}));
+  .post(passport.authenticate('local-signin', { successRedirect: '/',
+  failureRedirect: '/nope'}));
 
   router.route("/signup")
-  .post(passport.authenticate('local-signup', { successRedirect: '/homepage',
-  failureRedirect: '/'}));
+  .post(passport.authenticate('local-signup', { successRedirect: '/',
+  failureRedirect: '/nope'}));
 
+  // function isLoggedIn(req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     return next();
+  //   }
 
+  //   res.redirect("/signin");
+  // }
 
 
 module.exports = router;

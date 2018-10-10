@@ -7,6 +7,9 @@ const htmlRoutes = ("./html")
 // API Routes
 router.use("/api", apiRoutes);
 router.use("/auth", authRoutes);
+router.get("/wow", (req, res) => {
+  res.send("<h1>wow</h1>")
+})
 
 // API Routes
 // router.use("/api");
