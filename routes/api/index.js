@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const clusters = require("./clusters");
+const mainpage = require("./mainpage");
 
-// Book routes
+// cluster routes
 router.use("/clusters", clusters);
+router.use("/mainpage", mainpage);
 
 module.exports = router;

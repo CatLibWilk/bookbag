@@ -11,5 +11,17 @@ module.exports = {
             console.log(dbClusters)
             res.json(dbClusters)
         });
+    },
+
+    getCluster: function(req, res) {
+        console.log(`getting cluster ${req.params.id} in bdController for mainpage`);
+        db.Cluster.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(dbCluster => {
+            console.log(dbCluster)
+            res.json(dbCluster)
+        })
     }
 };

@@ -4,6 +4,7 @@ import API from "../../utils/API";
 
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
+import ContentDiv from "../../components/ContentDiv"
 
 class HomePage extends Component {
   state = {
@@ -17,7 +18,17 @@ class HomePage extends Component {
 
             this.setState({userClusters: result.data})
         
-        })
+        });
+  };
+
+  handleDelete = (id) => {
+    console.log("delete clicked")
+    console.log(id)
+  }
+  
+  createClick = (e) => {
+    console.log("create clicked")
+    console.log(e.target)
   }
 
   render() {
@@ -26,11 +37,10 @@ class HomePage extends Component {
         <Jumbotron />
         <Navbar />
         {this.state.userClusters.map(clus => (
-          
-            <h1>{clus.title}</h1>
-          
+            <ContentDiv key={clus.id} id={clus.id} title={clus.title} click={this.handleDelete} />
+           
         ))}
-        
+        <div className="btn btn-success" onClick={this.createClick}>Create New Cluster</div>
       </div>
       )
   }

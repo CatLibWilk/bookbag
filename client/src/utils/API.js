@@ -15,6 +15,10 @@ export default {
 
   getClusters: function() {
     return axios.get("/api/clusters");
-  }
+  },
   
+  getCluster: function(id){
+    console.log('reached util from mainpage')
+    return axios.get("/api/mainpage/" + id)
+  }
 };
