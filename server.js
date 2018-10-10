@@ -22,6 +22,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//(passport needs to be on end to recognize local strategy, idk why but is so)
 require("./config/passport/passport.js")(passport)
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

@@ -27,12 +27,9 @@ class SignIn extends Component {
       password: this.state.password
     })
       .then(result => {
-        if(result.data === "already reg"){
-          alert("Email taken")
-        }else{
-          console.log(result)
+        
           this.setState({toHomePage: true})
-        }
+
     
         //want a redirect here but havent been able to figure it out yet//
       })
