@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const authController = require("../../controllers/authController");
+const dbController = require("../../controllers/dbController");
 
 // Matches with "/api/signin"
 router.route("/")
-  .post(authController.create);
+  .get(dbController.getClusters);
 
 
 module.exports = router;

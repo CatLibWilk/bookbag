@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const signin = require("./signin");
+const clusters = require("./clusters");
 
 // Book routes
-router.use("/signin", signin);
+router.use("/clusters", clusters);
 
 module.exports = router;

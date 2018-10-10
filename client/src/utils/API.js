@@ -11,6 +11,10 @@ export default {
   login: function(loginInfo) {
     console.log("to util login function")
     return axios.post("/auth/login", loginInfo);
+  },
+
+  getClusters: function() {
+    return axios.get("/api/clusters");
   }
   
 };
