@@ -24,8 +24,11 @@ module.exports = {
     login: (req, res) => {
         console.log(req.body)
         console.log("controller reached login")
-        passport.authenticate('local-signup', { successRedirect: '/homepage',
-                                            failureRedirect: '/',
-                                            failureFlash: true })
+
+            
+            passport.authenticate('local-signup', { successRedirect: '/homepage',
+            failureRedirect: '/',
+            failureFlash: true })
+        
     }
 }

@@ -30,6 +30,7 @@ module.exports = function(){
             User.findOne({ where: { username: username } }).then(function(user) {
                 if (user) {
                   return done(null, false, {
+                    
                     message: "That email is already taken"
                   });
                 } else {
@@ -46,6 +47,7 @@ module.exports = function(){
                     }
       
                     if (newUser) {
+                      console.log(newUser);
                       return done(null, newUser);
                     }
                   });
@@ -67,8 +69,8 @@ module.exports = function(){
               }
   
               // var userinfo = user.get();
-
-              return done(null, userinfo);
+              console.log(user)
+              return done(null, user);
             })
             .catch(function(err) {
               console.log("Error:", err);
