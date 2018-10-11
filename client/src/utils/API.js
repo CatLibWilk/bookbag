@@ -20,5 +20,15 @@ export default {
   getCluster: function(id){
     console.log('reached util from mainpage')
     return axios.get("/api/mainpage/" + id)
+  },
+
+  deleteNote: function(id){
+    console.log("deleteNote function reached in util");
+    return axios.delete("/api/mainpage/deletenote/" + id)
+  },
+
+  deleteCitation: function(id){
+    console.log("deleteCitation function reached in util");
+    return axios.delete("/api/mainpage/deletecitation/" + id)
   }
 };

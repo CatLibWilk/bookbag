@@ -33,19 +33,16 @@ module.exports = {
                         returnedData
                     });
                 });
-    }      
+    },
+    
+    deleteNote: function (req, res) {
+        console.log("deletenote reached in dbController");
+        console.log(`preparing to delete note with id = ${req.params.id}`)
+    },
+
+    deleteCitation: function (req, res) {
+        console.log("deletenote reached in dbController");
+        console.log(`preparing to delete citation with id = ${req.params.id}`)
+    }
     
 };
-
-// var citationPromise = db.Citation...
-
-// var notesPromise = db.Notes....
-
-
-// Promise.all(citationPromise, notesPromise)
-// .then(citationData, notesData) {
-//     res.json({
-//         citation: citationData,
-//         notes: notesData
-//     })
-// }

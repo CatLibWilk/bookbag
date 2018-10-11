@@ -25,10 +25,26 @@ class MainPage extends Component {
   }
 
   handleDelete(id, name){
-
     console.log("delete clicked on mainpage");
     console.log(id)
     console.log(name)
+
+    switch(name){
+      case "citation":
+        API.deleteCitation(id)
+            // .then(result => {
+            //   console.log(result);
+            // })
+        break;
+
+      case "note":
+        API.deleteNote(id)
+            // .then(result => {
+            //   console.log(result);
+            // })
+        break;
+
+    }
   }
   render() {
     return(
