@@ -27,10 +27,10 @@ module.exports = {
         });
 
         Promise.all([citationPromise, notesPromise])
-                .then((citationData, notesData) => {
+                .then((returnedData) => {
+                    console.log(returnedData)
                     res.json({
-                        citations: citationData,
-                        notes: notesData
+                        returnedData
                     });
                 });
     }      
