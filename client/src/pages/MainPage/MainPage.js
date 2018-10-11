@@ -23,22 +23,29 @@ class MainPage extends Component {
       })
       .catch(err => console.log(err));
   }
+
+  handleDelete(id, name){
+
+    console.log("delete clicked on mainpage");
+    console.log(id)
+    console.log(name)
+  }
   render() {
     return(
       <div>
         <div>
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {
-            console.log(citation)
+
             return(
               <div>
 
-              <ContentDiv title={citation.title} url={citation.url}/>
+              <ContentDiv id={citation.id} name={"citation"} button_types={["edit", "delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
               
               {this.state.notes.map(note => {
                 if(note.CitationId === citation.id){
                   return (
-                    <ContentDiv colWidth={"colWidth"} body={note.body}/>
+                    <ContentDiv id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
                     )
                   }
                 })}
@@ -55,7 +62,7 @@ class MainPage extends Component {
 
                 return(
                   
-                  <ContentDiv body={note.body}/>
+                  <ContentDiv id={note.id} name={"note"} button_types={["edit", "delete"]} body={note.body} click={this.handleDelete}/>
                   )
                }
           })}

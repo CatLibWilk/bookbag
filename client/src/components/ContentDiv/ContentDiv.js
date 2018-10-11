@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ContentDiv = (props) => {
   return (
 
-    <div className={`${props.colWidth ? "col-6" : ""} card m-2`} {...props}>
+    <div className={`${props.colWidth ? "col-6" : ""} card m-2`}>
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
         {/* will add some of these back in when I have stuff to populate (maybe saved date?) */}
@@ -12,9 +12,9 @@ const ContentDiv = (props) => {
         <p className="card-text">{props.body}</p>
         
       <Link to={"/mainpage/" + props.id} >
-        <div className="btn btn-warning" clusterid={props.id}>Open</div>
+        <div className="btn btn-warning" name={props.name} id={props.id}>{props.button_types[0]}</div>
       </Link>
-      <div className="btn btn-danger" clusterid={props.id} onClick={() => props.click(props.id)}>Delete</div>
+      <div className="btn btn-danger" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[1]}</div>
       </div>
     </div>
   )

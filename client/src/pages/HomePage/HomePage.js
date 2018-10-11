@@ -37,7 +37,7 @@ class HomePage extends Component {
         <Jumbotron />
         <Navbar />
         {this.state.userClusters.map(clus => (
-            <ContentDiv key={clus.id} id={clus.id} title={clus.title} click={this.handleDelete} />
+            <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
            
         ))}
         <div className="btn btn-success" onClick={this.createClick}>Create New Cluster</div>
