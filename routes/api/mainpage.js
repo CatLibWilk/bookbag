@@ -3,7 +3,7 @@ const dbController = require("../../controllers/dbController");
 
 // Matches with "/api/signin"
 router.route("/:id")
-  .get(dbController.getCluster);
+  .get(dbController.getClusterData);
 
 
 module.exports = router;

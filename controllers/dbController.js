@@ -13,17 +13,39 @@ module.exports = {
         });
     },
 
-    getCluster: function(req, res) {
+    getClusterData: function(req, res) {
         console.log(`getting children of cluster ${req.params.id} in bdController for mainpage`);
-        db.Citation.findOne({
+        const citationPromise = db.Citation.findAll({
             where: {
                 ClusterId: req.params.id
             }
-            //I think i need to either do an async call to both citations and notes, or somehow tell it to get all citations
-            //assocated with a cluster AND all the notes associated with that citation
-        }).then(dbCluster => {
-            console.log(dbCluster)
-            res.json(dbCluster)
-        })
-    }
+        });
+        const notesPromise = db.Note.findAll({
+            where: {
+                ClusterId: req.params.id
+            }
+        });
+
+        Promise.all([citationPromise, notesPromise])
+                .then((citationData, notesData) => {
+                    res.json({
+                        citations: citationData,
+                        notes: notesData
+                    });
+                });
+    }      
+    
 };
+
+// var citationPromise = db.Citation...
+
+// var notesPromise = db.Notes....
+
+
+// Promise.all(citationPromise, notesPromise)
+// .then(citationData, notesData) {
+//     res.json({
+//         citation: citationData,
+//         notes: notesData
+//     })
+// }
