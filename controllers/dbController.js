@@ -38,6 +38,14 @@ module.exports = {
     deleteNote: function (req, res) {
         console.log("deletenote reached in dbController");
         console.log(`preparing to delete note with id = ${req.params.id}`)
+        db.Note.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(result => {
+                res.json(result);
+            });
     },
 
     deleteCitation: function (req, res) {

@@ -24,11 +24,11 @@ export default {
 
   deleteNote: function(id){
     console.log("deleteNote function reached in util");
-    return axios.delete("/api/mainpage/deletenote/" + id)
+    return axios.delete("/api/mainpage/note/" + id)
   },
 
   deleteCitation: function(id){
     console.log("deleteCitation function reached in util");
-    return axios.delete("/api/mainpage/deletecitation/" + id)
+    return axios.delete("/api/mainpage/citation/" + id)
   }
 };

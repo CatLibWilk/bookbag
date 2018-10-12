@@ -10,42 +10,61 @@ class MainPage extends Component {
   }
   
   componentDidMount() {
-    console.log('did mount runs mainpage')
+    console.log('did mount runs mainpage');
+    this.getAssociated();
+  }
+  
+  getAssociated = () => {
     API.getCluster(this.props.match.params.id)
       .then(res => {
         const newCitations = res.data.returnedData[0];
         const newNotes = res.data.returnedData[1];
-
+  
         this.setState({
           citations: newCitations,
           notes: newNotes
         });
       })
       .catch(err => console.log(err));
+
   }
 
-  handleDelete(id, name){
+  handleDelete = (id, name) => {
     console.log("delete clicked on mainpage");
-    console.log(id)
-    console.log(name)
+    console.log(id);
+    console.log(name);
 
-    switch(name){
+
+    switch(name) {
       case "citation":
         API.deleteCitation(id)
-            // .then(result => {
-            //   console.log(result);
-            // })
+            .then( () => this.getAssociated());
         break;
 
       case "note":
         API.deleteNote(id)
-            // .then(result => {
-            //   console.log(result);
-            // })
-        break;
+            .then( () => {this.getAssociated()})
+    };
+        // if(name==="citation") {
+
+        //   API.deleteCitation(id)
+        //       // .then(result => {
+        //       //   console.log(result);
+        //       // })
+        // }
+
+        // if(name="note") {
+
+        //   API.deleteNote(id)
+        //       .then( () => {
+        //         this.getAssociated();
+        //       });
+        // }
+
+
 
     }
-  }
+  
   render() {
     return(
       <div>

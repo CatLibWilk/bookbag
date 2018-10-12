@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const dbController = require("../../controllers/dbController");
 
-
+//clusters
 router.route("/:id")
   .get(dbController.getClusterData);
 
-router.route("/deletenote/:id")
+  //notes
+router.route("/note/:id")
   .delete(dbController.deleteNote);
 
-router.route("/deletecitation/:id")
+  //citations
+router.route("/citation/:id")
   .delete(dbController.deleteCitation);
 
 
