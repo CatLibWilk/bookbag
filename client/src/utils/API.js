@@ -30,5 +30,15 @@ export default {
   deleteCitation: function(id){
     console.log("deleteCitation function reached in util");
     return axios.delete("/api/mainpage/citation/" + id)
+  },
+
+  getNote: function(id){
+    console.log("deleteNote function reached in util");
+    return axios.get("/api/edit/note/" + id)
+  },
+
+  getCitation: function(id){
+    console.log("deleteCitation function reached in util");
+    return axios.get("/api/edit/citation/" + id)
   }
 };

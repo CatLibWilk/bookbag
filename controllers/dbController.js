@@ -58,6 +58,30 @@ module.exports = {
         }).then(result => {
             res.json(result);
         });
+    },
+
+    getNote: function(req, res) {
+        console.log(`reached controller and retrieving data for note ${req.params.id}`)
+        db.Note.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+          .then(result => {
+              res.json(result)
+          });
+    },
+
+    getCitation: function(req, res) {
+        console.log(`reached controller and retrieving data for citation ${req.params.id}`)
+        db.Citation.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+          .then(result => {
+              res.json(result)
+          });
     }
     
 };
