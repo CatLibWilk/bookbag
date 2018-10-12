@@ -57,12 +57,12 @@ class MainPage extends Component {
             return(
               <div>
 
-              <ContentDiv routeSet={`../editcitation/${citation.id}`} id={citation.id} name={"citation"} button_types={["edit", "delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
+              <ContentDiv id={citation.id} onPage={"main"} name={"citation"} button_types={["delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
               
               {this.state.notes.map(note => {
                 if(note.CitationId === citation.id){
                   return (
-                    <ContentDiv routeSet={`../editenote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
+                    <ContentDiv routeSet={`../editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
                     )
                   }
                 })}
