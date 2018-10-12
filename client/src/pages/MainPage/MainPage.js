@@ -34,7 +34,6 @@ class MainPage extends Component {
     console.log(id);
     console.log(name);
 
-
     switch(name) {
       case "citation":
         API.deleteCitation(id)
@@ -45,25 +44,8 @@ class MainPage extends Component {
         API.deleteNote(id)
             .then( () => {this.getAssociated()})
     };
-        // if(name==="citation") {
-
-        //   API.deleteCitation(id)
-        //       // .then(result => {
-        //       //   console.log(result);
-        //       // })
-        // }
-
-        // if(name="note") {
-
-        //   API.deleteNote(id)
-        //       .then( () => {
-        //         this.getAssociated();
-        //       });
-        // }
-
-
-
-    }
+       
+  }
   
   render() {
     return(
