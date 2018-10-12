@@ -23,7 +23,8 @@ class HomePage extends Component {
 
   handleDelete = (id) => {
     console.log("delete clicked")
-    console.log(id)
+    API.deleteCluster(id)
+        .then(result => {console.log(result)})
   }
   
   createClick = (e) => {

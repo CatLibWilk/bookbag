@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const dbController = require("../../controllers/dbController");
 
-//clusters
+//clusters associates all
 router.route("/:id")
   .get(dbController.getClusterData);
+
 
   //notes
 router.route("/note/:id")

@@ -22,6 +22,11 @@ export default {
     return axios.get("/api/mainpage/" + id)
   },
 
+  deleteCluster: function(id){
+    console.log('reached util from mainpage')
+    return axios.delete("/api/clusters/" + id)
+  },
+
   deleteNote: function(id){
     console.log("deleteNote function reached in util");
     return axios.delete("/api/mainpage/note/" + id)

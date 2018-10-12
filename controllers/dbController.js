@@ -13,6 +13,18 @@ module.exports = {
         });
     },
 
+    deleteCluster: function(req, res) {
+        console.log(`delete cluster reached in controller, prepare to delete cluster with id = ${req.params.id}`)
+        db.Cluster.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(result => {
+            console.log(result);
+            res.json(result);
+        })
+    },
+
     getClusterData: function(req, res) {
         console.log(`getting children of cluster ${req.params.id} in bdController for mainpage`);
         const citationPromise = db.Citation.findAll({
