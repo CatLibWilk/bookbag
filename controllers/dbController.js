@@ -24,6 +24,17 @@ module.exports = {
             res.json(result);
         })
     },
+    
+    createCluster: function(req, res) {
+        console.log(`create cluster reached in controller, prepare to create cluster with name = ${req.params.name}`)
+         db.Cluster.create({
+             title: req.params.name,
+             UserId: req.user.id
+            })
+                    .then(response => {
+                        res.json(response);
+                    });
+    },
 
     getClusterData: function(req, res) {
         console.log(`getting children of cluster ${req.params.id} in bdController for mainpage`);

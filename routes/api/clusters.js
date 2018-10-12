@@ -3,9 +3,13 @@ const dbController = require("../../controllers/dbController");
 
 
 router.route("/")
-  .get(dbController.getClusters);
+        .get(dbController.getClusters);
 
-router.route("/:id")
-  .delete(dbController.deleteCluster);
+  router.route("/:name")
+          .post(dbController.createCluster);
+
+  router.route("/:id")
+          .delete(dbController.deleteCluster);
+
 
 module.exports = router;

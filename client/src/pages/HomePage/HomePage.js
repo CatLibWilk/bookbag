@@ -4,7 +4,8 @@ import API from "../../utils/API";
 
 import Jumbotron from "../../components/Jumbotron";
 import Navbar from "../../components/Navbar";
-import ContentDiv from "../../components/ContentDiv"
+import ContentDiv from "../../components/ContentDiv";
+import Input from "../../components/Input";
 
 class HomePage extends Component {
   state = {
@@ -12,24 +13,39 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
+    this.getClusters();
+  };
+  
+  getClusters = () => {
     API.getClusters()
         .then(result => {
           // console.log(result.data)
-
             this.setState({userClusters: result.data})
-        
         });
+ 
   };
 
   handleDelete = (id) => {
     console.log("delete clicked")
     API.deleteCluster(id)
-        .then(result => {console.log(result)})
-  }
+        .then(result => {
+          console.log(result);
+          this.getClusters();
+        });
+  };
   
   createClick = (e) => {
     console.log("create clicked")
-    console.log(e.target)
+
+    const input = e.target.parentElement.parentElement.firstElementChild;
+    const newClusterName = input.value;
+    console.log(newClusterName)
+
+    API.createCluster(newClusterName)
+        .then(result => {
+          console.log(result);
+          this.getClusters();
+        })
   }
 
   render() {
@@ -41,7 +57,7 @@ class HomePage extends Component {
             <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
            
         ))}
-        <div className="btn btn-success" onClick={this.createClick}>Create New Cluster</div>
+        <Input click={this.createClick}/>
       </div>
       )
   }
