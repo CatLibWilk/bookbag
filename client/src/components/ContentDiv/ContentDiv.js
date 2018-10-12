@@ -11,7 +11,7 @@ const ContentDiv = (props) => {
         <h6 className="card-subtitle mb-2 text-muted">{props.url}</h6>
         <p className="card-text">{props.body}</p>
         
-      <Link to={"/mainpage/" + props.id} >
+      <Link to={props.routeSet ? `${props.routeSet}` : "/mainpage/" + props.id} >
         <div className="btn btn-warning" name={props.name} id={props.id}>{props.button_types[0]}</div>
       </Link>
       <div className="btn btn-danger" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[1]}</div>
