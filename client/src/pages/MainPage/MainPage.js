@@ -62,7 +62,7 @@ class MainPage extends Component {
               {this.state.notes.map(note => {
                 if(note.CitationId === citation.id){
                   return (
-                    <ContentDiv routeSet={`../editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
+                    <ContentDiv routeSet={`${this.props.match.params.id}/editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
                     )
                   }
                 })}
@@ -84,7 +84,7 @@ class MainPage extends Component {
 
                 return(
                   
-                  <ContentDiv routeSet={`../editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} body={note.body} click={this.handleDelete}/>
+                  <ContentDiv routeSet={`${this.props.match.params.id}/editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} body={note.body} click={this.handleDelete}/>
                   )
                }
           })}

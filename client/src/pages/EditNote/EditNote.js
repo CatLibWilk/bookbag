@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import API from "../../utils/API";
 import Form from "../../components/Form";
 
 class EditNote extends Component {
   state = {
-    current: ""
+    current: "",
+    toMainPage: false
   };
 
   componentDidMount(){
@@ -14,8 +15,13 @@ class EditNote extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const body = document.getElementById("text-area").value;
-    console.log(body)
+    const body = {body: document.getElementById("text-area").value};
+    API.editNote(body, this.props.match.params.id)
+        .then(result => {
+          console.log('resturned from server');
+          console.log(result);
+          this.setState({toMainPage: "true"})
+        });
   }
 
 
@@ -36,7 +42,9 @@ class EditNote extends Component {
   };
 
   render() {
-
+    if(this.state.toMainPage === "true"){
+      return <Redirect to={`/mainpage/${this.props.match.params.clusId}`} />
+    }
     return(
       <Form click={(e) => this.handleSubmit} form_text={this.state.current} head-text={"Edit your note"}/>
       )

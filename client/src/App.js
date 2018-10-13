@@ -28,7 +28,7 @@ class App extends Component {
             <Route exact path="/searchresults" component={SearchResults} />
             <Route exact path="/mainpage/:id/createnote" component={CreateNote} />
             <Route exact path="/mainpage/:id/:citId/createnote" component={CreateNote} />
-            <Route exact path="/editnote/:id" component={EditNote} />
+            <Route exact path="/mainpage/:clusId/editnote/:id" component={EditNote} />
             <Route exact path="/editcitation/:id" component={EditNote} />
             <Route component={NoMatch} />
           </Switch>

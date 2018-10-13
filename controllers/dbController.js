@@ -106,6 +106,32 @@ module.exports = {
         }
     },
 
+    getNote: function(req, res) {
+        console.log(`reached controller and retrieving data for note ${req.params.id}`)
+        db.Note.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+          .then(result => {
+              res.json(result)
+          });
+    },
+
+    editNote: function(req, res) {
+        db.Note.update({
+            body: req.body.body,
+            },{
+                where: {
+                    id: req.params.id
+                }
+            }
+        ).then(response => {
+            res.json(response);
+        });
+        
+    },
+
     deleteCitation: function (req, res) {
         console.log("deletenote reached in dbController");
         console.log(`preparing to delete citation with id = ${req.params.id}`)
@@ -118,17 +144,6 @@ module.exports = {
         });
     },
 
-    getNote: function(req, res) {
-        console.log(`reached controller and retrieving data for note ${req.params.id}`)
-        db.Note.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-          .then(result => {
-              res.json(result)
-          });
-    },
 
     getCitation: function(req, res) {
         console.log(`reached controller and retrieving data for citation ${req.params.id}`)
