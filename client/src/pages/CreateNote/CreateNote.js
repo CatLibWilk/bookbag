@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import API from "../../utils/API";
+import Form from "../../components/Form";
 
 class CreateNote extends Component {
   state = {
@@ -35,16 +36,17 @@ class CreateNote extends Component {
       return <Redirect to={`/mainpage/${this.props.match.params.id}`} />
     }
     return(
-        <div className="col-lg-10 mt-5 mx-auto">
-          <form>
-            <div className="form-group">
-              <label>Enter a new note here</label>
-              <textarea className="form-control" id="text-area" rows="3"></textarea>
-            </div>
-            {console.log(this.props.match.params.citId)}
-            <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
-          </form>
-        </div>
+      <Form click={(e) => this.handleSubmit} text={"Enter a new note here"}/>
+        // <div className="col-lg-10 mt-5 mx-auto">
+        //   <form>
+        //     <div className="form-group">
+        //       <label>Enter a new note here</label>
+        //       <textarea className="form-control" id="text-area" rows="3"></textarea>
+        //     </div>
+        //     {console.log(this.props.match.params.citId)}
+        //     <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
+        //   </form>
+        // </div>
       )
   }
 }
