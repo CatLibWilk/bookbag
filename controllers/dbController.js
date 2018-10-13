@@ -70,6 +70,18 @@ module.exports = {
                 res.json(result);
             });
     },
+    
+    createNote: function (req, res) {
+        console.log("createNote reached in dbController");
+        console.log(req.body);
+        db.Note.create({
+            body: req.body.body,
+            ClusterId: req.body.clusId,
+            UserId: req.user.id
+        }).then(result => {
+            res.json(result);
+        });
+    },
 
     deleteCitation: function (req, res) {
         console.log("deletenote reached in dbController");

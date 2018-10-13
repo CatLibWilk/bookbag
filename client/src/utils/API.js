@@ -48,6 +48,12 @@ export default {
     return axios.get("/api/edit/note/" + id)
   },
 
+  createNote: function(newNote){
+    console.log(newNote)
+    console.log("create note reached util");
+    return axios.post("/api/mainpage/note", newNote)
+  },
+
   deleteCitation: function(id){
     console.log("deleteCitation function reached in util");
     return axios.delete("/api/mainpage/citation/" + id)

@@ -10,6 +10,9 @@ router.route("/:id")
 router.route("/note/:id")
   .delete(dbController.deleteNote);
 
+  router.route("/note")
+          .post(dbController.createNote);
+
   //citations
 router.route("/citation/:id")
   .delete(dbController.deleteCitation);
