@@ -52,7 +52,7 @@ class HomePage extends Component {
     return(
       <div>
         <Jumbotron />
-        <Navbar />
+
         {this.state.userClusters.map(clus => (
             <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
            

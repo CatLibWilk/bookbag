@@ -10,6 +10,8 @@ import SearchResults from "./pages/SearchResults";
 import Signin from "./pages/SignIn";
 import Signup from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
+import Navbar from "./components/Navbar";
+
 
 class App extends Component {
   render() {
@@ -17,6 +19,7 @@ class App extends Component {
       <div className="App">
       <Router>
         <div>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Signin} />
             <Route exact path="/signup" component={Signup} />
