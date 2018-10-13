@@ -7,7 +7,8 @@ import API from "../../utils/API";
 class SignUp extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    toHomePage: "false"
   };
 
   handleInput = (e) => {
@@ -33,6 +34,9 @@ class SignUp extends Component {
   }
 
   render() {
+    if(this.state.toHomePage === true){
+      return <Redirect to={'/homepage'} />
+    }
     return(
       <div>
         <Jumbotron />
