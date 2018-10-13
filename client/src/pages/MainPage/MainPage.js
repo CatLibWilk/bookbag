@@ -66,7 +66,9 @@ class MainPage extends Component {
                     )
                   }
                 })}
-
+                <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
+                  <div className="btn btn-danger">Create Note for This Citation</div>
+                </Link>
               </div>
               )
 

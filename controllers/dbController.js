@@ -74,13 +74,36 @@ module.exports = {
     createNote: function (req, res) {
         console.log("createNote reached in dbController");
         console.log(req.body);
-        db.Note.create({
-            body: req.body.body,
-            ClusterId: req.body.clusId,
-            UserId: req.user.id
-        }).then(result => {
-            res.json(result);
-        });
+        let newNote = {};
+
+        if(req.body.citId){
+            newNote = {
+                body: req.body.body,
+                ClusterId: req.body.clusId,
+                CitationId: req.body.citId,
+                UserId: req.user.id
+            }
+            
+            db.Note.create(
+                newNote
+            ).then(result => {
+                res.json(result);
+            });
+
+
+        }else{
+            newNote = {
+                body: req.body.body,
+                ClusterId: req.body.clusId,
+                UserId: req.user.id
+            }
+
+            db.Note.create(
+                newNote
+            ).then(result => {
+                res.json(result);
+            });
+        }
     },
 
     deleteCitation: function (req, res) {
