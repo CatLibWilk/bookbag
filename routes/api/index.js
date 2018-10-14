@@ -8,6 +8,6 @@ const edit = require("./edit")
 router.use("/clusters", clusters);
 router.use("/mainpage", mainpage);
 router.use("/edit", edit);
-router.use("/harvest", harvest)
+router.use("/harvest", harvest);
 
 module.exports = router;
