@@ -57,7 +57,7 @@ class HomePage extends Component {
             <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
            
         ))}
-        <Input click={this.createClick}/>
+        <Input label={'Add Cluster'} passedPlaceholder={'enter a cluster name'}click={this.createClick}/>
       </div>
       )
   }

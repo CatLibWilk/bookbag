@@ -70,5 +70,11 @@ export default {
   getCitation: function(id){
     console.log("deleteCitation function reached in util");
     return axios.get("/api/edit/citation/" + id)
+  },
+
+  getBibs: function(query){
+    console.log(query)
+    console.log('getbibs util reached');
+    return axios.post("/api/harvest", query)
   }
 };

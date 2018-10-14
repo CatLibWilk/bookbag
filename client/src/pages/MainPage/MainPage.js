@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import ContentDiv from "../../components/ContentDiv";
+import Input from "../../components/Input";
 
 class MainPage extends Component {
   state = {
     citations: [],
-    notes: []
-  }
+    notes: [],
+    returnedResources: []
+  };
   
   componentDidMount() {
     console.log('did mount runs mainpage');
     this.getAssociated();
-  }
+  };
   
   getAssociated = () => {
     API.getCluster(this.props.match.params.id)
@@ -27,7 +29,7 @@ class MainPage extends Component {
       })
       .catch(err => console.log(err));
 
-  }
+  };
 
   handleDelete = (id, name) => {
     console.log("delete clicked on mainpage");
@@ -45,11 +47,29 @@ class MainPage extends Component {
             .then( () => {this.getAssociated()})
     };
        
+  };
+
+  handleSearch = (e) => {
+    console.log('search function called');
+    const input = e.target.parentElement.parentElement.firstElementChild;
+    const query = {query: input.value};
+    console.log(query);
+    API.getBibs(query)
+        .then(returned => {
+          console.log(returned.data);
+        });
   }
   
   render() {
     return(
       <div>
+        <div id="search-div">
+          <h1>Find Resources</h1>
+          <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
+          <div id="results-div">
+
+          </div>
+        </div>
         <div>
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {

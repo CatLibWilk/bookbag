@@ -15,13 +15,18 @@ class EditNote extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const body = {body: document.getElementById("text-area").value};
-    API.editNote(body, this.props.match.params.id)
-        .then(result => {
-          console.log('resturned from server');
-          console.log(result);
-          this.setState({toMainPage: "true"})
-        });
+    if(document.getElementById("text-area").value!==""){
+
+      const body = {body: document.getElementById("text-area").value};
+      API.editNote(body, this.props.match.params.id)
+      .then(result => {
+        console.log('resturned from server');
+        console.log(result);
+        this.setState({toMainPage: "true"})
+      });
+    }else{
+      alert("Please enter text to make changes to note")
+    }
   }
 
 
