@@ -17,8 +17,21 @@ const ContentDiv = (props) => {
         </div>
       </div>
     ); 
+  }
+  if(props.name==="citation-new"){
 
-
+  return (
+    <div className={`${props.colWidth ? "col-6" : ""} card m-2`}>
+        <div className="card-body">
+          <h5 className="card-title">{props.title}</h5>
+          {/* will add some of these back in when I have stuff to populate (maybe saved date?) */}
+          <p className="card-text">{props.creator}</p>
+          <p className="card-text">{props.date}</p>
+        
+        <div className="btn btn-danger" name={props.name} onClick={() => props.click(props.title, props.creator)}>{props.button_types[0]}</div>
+        </div>
+      </div>
+  )
 
 
 

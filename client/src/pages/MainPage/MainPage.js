@@ -56,8 +56,13 @@ class MainPage extends Component {
     console.log(query);
     API.getBibs(query)
         .then(returned => {
-          console.log(returned.data);
+          console.log(returned.data.response.docs)
+          this.setState({returnedResources: returned.data.response.docs})
         });
+  }
+
+  handleSaveCit = (title, creator) => {
+    console.log("clicked")
   }
   
   render() {
@@ -67,7 +72,14 @@ class MainPage extends Component {
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
           <div id="results-div">
-
+              {this.state.returnedResources.map(item => {
+                return (
+                  <div>
+                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} click={() => this.handleSaveCit} button_types={["save"]}/>
+                    {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
+                  </div>
+                )
+              })}
           </div>
         </div>
         <div>
