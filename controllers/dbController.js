@@ -133,7 +133,7 @@ module.exports = {
     },
 
     deleteCitation: function (req, res) {
-        console.log("deletenote reached in dbController");
+        console.log("deletecitation reached in dbController");
         console.log(`preparing to delete citation with id = ${req.params.id}`)
         db.Citation.destroy({
             where: {
@@ -142,6 +142,16 @@ module.exports = {
         }).then(result => {
             res.json(result);
         });
+    },
+
+    createCitation: function (req, res) {
+        console.log("createCitation reached in dbController");
+        console.log(req.body)
+        db.Citation.create(req.body)
+                    .then(response => {
+                        res.json(response)
+                    });
+        
     },
 
 

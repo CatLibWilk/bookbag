@@ -17,5 +17,7 @@ router.route("/note/:id")
 router.route("/citation/:id")
   .delete(dbController.deleteCitation);
 
+router.route("/citation")
+        .post(dbController.createCitation)
 
 module.exports = router;

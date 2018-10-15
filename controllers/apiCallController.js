@@ -10,7 +10,7 @@ module.exports = {
         console.log(query);
         axios.get(query)
               .then( result => {
-                
+                console.log(result)
                 res.send(result.data)
 
               })

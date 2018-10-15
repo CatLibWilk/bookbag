@@ -72,6 +72,12 @@ export default {
     return axios.get("/api/edit/citation/" + id)
   },
 
+  createCitation: function(newCit){
+    console.log(newCit)
+    console.log("createCitation function reached in util");
+    return axios.post("/api/mainpage/citation/", newCit)
+  },
+
   getBibs: function(query){
     console.log(query)
     console.log('getbibs util reached');

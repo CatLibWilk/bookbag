@@ -55,15 +55,25 @@ class MainPage extends Component {
     const query = {query: input.value};
     console.log(query);
     API.getBibs(query)
-        .then(returned => {
+        .then( (returned) => {
           console.log(returned.data.response.docs)
           this.setState({returnedResources: returned.data.response.docs})
         });
   }
 
   handleSaveCit = (title, creator) => {
-    console.log("clicked")
-  }
+    console.log(title, creator)
+    const newCit = {
+      title: title,
+      author: creator,
+      url: 'www.google.com',
+      ClusterId: this.props.match.params.id
+    }
+    API.createCitation(newCit)
+        .then(result => {
+          this.getAssociated();
+        });
+  };
   
   render() {
     return(
@@ -75,7 +85,7 @@ class MainPage extends Component {
               {this.state.returnedResources.map(item => {
                 return (
                   <div>
-                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} click={() => this.handleSaveCit} button_types={["save"]}/>
+                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} click={this.handleSaveCit} button_types={["save"]}/>
                     {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
                   </div>
                 )
