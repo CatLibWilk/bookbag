@@ -135,12 +135,18 @@ module.exports = {
     deleteCitation: function (req, res) {
         console.log("deletecitation reached in dbController");
         console.log(`preparing to delete citation with id = ${req.params.id}`)
-        db.Citation.destroy({
+        db.Note.destroy({
             where: {
-                id: req.params.id
+                CitationId: req.params.id
             }
         }).then(result => {
-            res.json(result);
+            db.Citation.destroy({
+                where: {
+                    id: req.params.id
+                }
+        }).then(result => {
+                res.json(result)
+            });
         });
     },
 

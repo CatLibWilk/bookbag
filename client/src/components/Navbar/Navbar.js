@@ -16,7 +16,15 @@ const Navbar = (props) => (
         </li>
       
         <li className="nav-item mr-auto">
-          <a className="nav-link" href="#">Export</a>
+        <Link to={"/"}>
+          <a className="nav-link" href="#">Signin</a>
+        </Link>
+        </li>
+
+        <li className="nav-item mr-auto">
+        <Link to={"/logout"}>
+          <a className="nav-link" href="#">Signout</a>
+        </Link>
         </li>
         
       </ul>
