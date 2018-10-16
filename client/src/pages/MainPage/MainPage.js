@@ -56,8 +56,32 @@ class MainPage extends Component {
     console.log(query);
     API.getBibs(query)
         .then( (returned) => {
-          console.log(returned.data.response.docs)
-          this.setState({returnedResources: returned.data.response.docs})
+          const returnedResources = []
+          console.log(returned.data.docs)
+          console.log(returned.data.docs[1].author_name[0])
+          console.log(returned.data.docs[1].title)
+          console.log(returned.data.docs[1].key)
+          console.log(returned.data.docs[1].first_publish_year)
+          for(let i = 0; i<5; i++){
+            let authorChecked = "";
+            if(returned.data.docs[i].author_name[0]){
+              authorChecked = returned.data.docs[i].author_name[0]
+            }else{
+              authorChecked=""
+            }
+            const newCitation = {
+              title: returned.data.docs[i].title,
+              author: authorChecked,
+              url: `https://openlibrary.org${returned.data.docs[i].key}`,
+              publication_date: returned.data.docs[i].first_publish_year
+
+            }
+            returnedResources.push(newCitation)
+            console.log(returnedResources)
+          }
+          
+          // console.log(returned.data.response.docs)
+          // this.setState({returnedResources: returned.data.response.docs})
         });
   }
 
