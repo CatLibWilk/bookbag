@@ -12,6 +12,21 @@ router.route("/login")
   .post(passport.authenticate('local-signup', { successRedirect: '/',
   failureRedirect: '/nope'}));
 
+  router.route("/logout")
+          .get( (req, res) => {
+            console.log('logout hit');
+            req.session.destroy(function() {
+              res.redirect("/");
+            });
+          });
+
+
+  // router.route("/logout")
+  //         .get(function(req, res) {
+  //   req.session.destroy(function() {
+  //     res.redirect("/");
+  //   });
+  // }
   // function isLoggedIn(req, res, next) {
   //   if (req.isAuthenticated()) {
   //     return next();

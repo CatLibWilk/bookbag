@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
+import API from "./utils/API";
 
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
@@ -14,12 +15,26 @@ import Navbar from "./components/Navbar";
 
 
 class App extends Component {
+  
+  state = {
+    loggedOut: false
+  };
+
+  handleLogout = () => {
+    console.log("logout clicked");
+    API.logout()
+        .then( () => {
+          this.setState({loggedOut: true})
+        })
+  }
   render() {
+
+    
     return (
       <div className="App">
       <Router>
         <div>
-          <Navbar />
+          <Navbar click={this.handleLogout}/>
           <Switch>
             <Route exact path="/" component={Signin} />
             <Route exact path="/signup" component={Signup} />

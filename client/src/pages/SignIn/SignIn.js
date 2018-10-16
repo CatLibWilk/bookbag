@@ -30,8 +30,6 @@ class SignIn extends Component {
         
           this.setState({toHomePage: true})
 
-    
-        //want a redirect here but havent been able to figure it out yet//
       })
   }
   

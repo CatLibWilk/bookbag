@@ -13,6 +13,11 @@ export default {
     return axios.post("/auth/login", loginInfo);
   },
 
+  logout: function() {
+    console.log("util for logout called");
+    return axios.get("/auth/logout");
+  },
+
 
 
   //clusters
