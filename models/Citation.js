@@ -17,6 +17,10 @@ module.exports = function(sequelize, DataTypes) {
       url: {
         type: DataTypes.STRING,
         defaultValue: false
+      },
+      date: {
+        type: DataTypes.INTEGER,
+        defaultValue: false
       }
       
     });

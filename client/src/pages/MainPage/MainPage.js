@@ -57,11 +57,6 @@ class MainPage extends Component {
     API.getBibs(query)
         .then( (returned) => {
           const returnedResources = []
-          console.log(returned.data.docs)
-          console.log(returned.data.docs[1].author_name[0])
-          console.log(returned.data.docs[1].title)
-          console.log(returned.data.docs[1].key)
-          console.log(returned.data.docs[1].first_publish_year)
           for(let i = 0; i<5; i++){
             let authorChecked = "";
             if(returned.data.docs[i].author_name[0]){
@@ -71,7 +66,7 @@ class MainPage extends Component {
             }
             const newCitation = {
               title: returned.data.docs[i].title,
-              author: authorChecked,
+              creator: authorChecked,
               url: `https://openlibrary.org${returned.data.docs[i].key}`,
               publication_date: returned.data.docs[i].first_publish_year
 
@@ -80,17 +75,17 @@ class MainPage extends Component {
             console.log(returnedResources)
           }
           
-          // console.log(returned.data.response.docs)
-          // this.setState({returnedResources: returned.data.response.docs})
+          this.setState({returnedResources: returnedResources});
         });
   }
 
-  handleSaveCit = (title, creator) => {
+  handleSaveCit = (title, creator, url, date) => {
     console.log(title, creator)
     const newCit = {
       title: title,
       author: creator,
-      url: 'www.google.com',
+      url: url,
+      date: date,
       ClusterId: this.props.match.params.id
     }
     API.createCitation(newCit)
@@ -107,9 +102,10 @@ class MainPage extends Component {
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
           <div id="results-div">
               {this.state.returnedResources.map(item => {
+                console.log(this.state.returnedResources)
                 return (
                   <div>
-                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} click={this.handleSaveCit} button_types={["save"]}/>
+                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_types={["save"]}/>
                     {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
                   </div>
                 )
