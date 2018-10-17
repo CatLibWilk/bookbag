@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import API from "../../utils/API";
 
 
@@ -15,8 +15,9 @@ class Navbar extends Component {
   }
   render() {
     if(this.state.loggedOut){
-      return <Redirect to={'/'} />
-    }
+      this.props.history.push('/');
+      this.setState({loggedOut: false});
+    };
 
     return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,4 +50,4 @@ class Navbar extends Component {
 }
 
 
-export default Navbar;
+export default withRouter(Navbar);
