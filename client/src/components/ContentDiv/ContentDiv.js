@@ -10,7 +10,7 @@ const ContentDiv = (props) => {
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           {/* will add some of these back in when I have stuff to populate (maybe saved date?) */}
-          <h6 className="card-subtitle mb-2 text-muted">{props.url}</h6>
+          <h6 className="card-subtitle mb-2 text-muted"><a href={props.url} target="_blank">{props.url}</a></h6>
           <p className="card-text">{props.body}</p>
         
         <div className="btn btn-danger" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[0]}</div>
