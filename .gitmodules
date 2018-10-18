@@ -1,4 +1,0 @@
-
-[submodule "mirador-viewer"]
-	path = mirador-viewer
-	url = https://github.com/ProjectMirador/mirador.git
