@@ -99,7 +99,7 @@ class MainPage extends Component {
       <div>
         <div id="viewer-row" className="row">
           <div id="viewer-col" className="col-10 mx-auto mb-3 mt-3">
-          <iframe title="Mirador" src="http://localhost:8000" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+          <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 
           </div>
         </div>
