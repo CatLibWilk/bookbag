@@ -97,6 +97,12 @@ class MainPage extends Component {
   render() {
     return(
       <div>
+        <div id="viewer-row" className="row">
+          <div id="viewer-col" className="col-10 mx-auto mb-3 mt-3">
+          <iframe title="Mirador" src="http://localhost:8000" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+
+          </div>
+        </div>
         <div id="search-div">
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
@@ -112,7 +118,8 @@ class MainPage extends Component {
               })}
           </div>
         </div>
-        <div>
+        <div className="row">
+            <div className="col-lg-6 float-left">
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {
 
@@ -133,13 +140,14 @@ class MainPage extends Component {
                   <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
                     <div className="btn btn-danger">Create Note for This Citation</div>
                   </Link>
-                
+                  
               </div>
               )
 
           })}
-        </div>
-        <div>
+          </div>
+        
+        <div className="col-lg-6 float-right">
           <h1 className="mt-3 mb-3">Notes</h1>
           {this.state.notes.map(note => {
               if(!note.CitationId){
@@ -153,6 +161,7 @@ class MainPage extends Component {
           <Link to={`${this.props.match.params.id}/createnote`}>
             <div className="btn btn-danger">Create Note</div>
           </Link>
+        </div>
         </div>
       </div>
     )
