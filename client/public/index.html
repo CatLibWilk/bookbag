@@ -21,16 +21,30 @@
     -->
     <title>BookBag</title>
     <style>
-        iframe{
+      iframe{
           min-width: 100%;
           min-height: 100%;
         }
+
+      .clearfix {
+           overflow: auto;
+        }
         
       .resizer {
-        border-radius: 5px;
+          border-radius: 10px;
           background-color: peachpuff;
-
           min-width: 20px;
+          cursor: se-resize;
+
+        }
+      #viewer-col {
+        min-height: 25px;
+      }
+      .resizer-icon {
+          position: absolute;
+          bottom: 0;
+          right: -3.5px;
+
         }
     </style>
   </head>
