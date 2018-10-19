@@ -27,7 +27,7 @@ export default {
   
   getCluster: function(id){
     console.log('reached util from mainpage')
-    return axios.get("/api/mainpage/" + id)
+    return axios.get("/api/clusters/" + id)
   },
 
   createCluster: function(name){
@@ -50,7 +50,7 @@ export default {
 
   getNote: function(id){
     console.log("deleteNote function reached in util");
-    return axios.get("/api/edit/note/" + id)
+    return axios.get("/api/mainpage/note/" + id)
   },
 
   createNote: function(newNote){
@@ -62,7 +62,7 @@ export default {
   editNote: function(body, id){
     console.log(body)
     console.log("edit note reached util");
-    return axios.put("/api/edit/note/" + id, body)
+    return axios.put("/api/mainpage/note/" + id, body)
   },
 
 
@@ -74,7 +74,7 @@ export default {
 
   getCitation: function(id){
     console.log("deleteCitation function reached in util");
-    return axios.get("/api/edit/citation/" + id)
+    return axios.get("/api/mainpage/citation/" + id)
   },
 
   createCitation: function(newCit){
