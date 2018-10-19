@@ -13,9 +13,39 @@ class MainPage extends Component {
   
   componentDidMount() {
     console.log('did mount runs mainpage');
-    this.getAssociated();
+    //setup and handling for dragable resize of iframe
+    let resizer = document.querySelector('.resizer'),
+        startX, startY, startWidth, startHeight;
+        resizer.addEventListener( 'mousedown', this.initDrag, false );
+        
+        this.getAssociated();
   };
+
+
+          initDrag = (e) => {
+            let resizeable = document.querySelector('.resizeable');
+            console.log('dragging')
+            this.startX = e.clientX;
+            this.startY = e.clientY;
+            this.startWidth = parseInt ( document.defaultView.getComputedStyle(resizeable ).width, 10);
+            this.startHeight = parseInt ( document.defaultView.getComputedStyle(resizeable ).height, 10);
+            document.documentElement.addEventListener('mousemove', this.doDrag, false);
+            document.documentElement.addEventListener('mouseup', this.stopDrag, false);
+          };
+      
+          doDrag = (e) => {
+            let resizeable = document.querySelector('.resizeable');
+            resizeable.style.width = (this.startWidth + e.clientX - this.startX) + 'px';
+            resizeable.style.height = (this.startHeight + e.clientY - this.startY) + 'px';
+          };
+      
+          stopDrag = (e) => {
+            document.documentElement.removeEventListener('mousemove', this.doDrag, false);
+            document.documentElement.removeEventListener('mouseup', this.stopDrag, false);
+          };
   
+
+
   getAssociated = () => {
     API.getCluster(this.props.match.params.id)
       .then(res => {
@@ -93,17 +123,19 @@ class MainPage extends Component {
           this.getAssociated();
         });
   };
+
+
   
   render() {
     return(
       <div>
         <div id="viewer-row" className="row">
-          <div id="viewer-col" className="col-10 mx-auto mb-3 mt-3">
+          <div id="viewer-col" className="col-10 mx-auto mb-3 mt-3 resizeable">
           {/* backup mirador viewer */}
           {/* <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> */}
           {/* local mirador viewer */}
           <iframe title="Mirador" src="http://localhost:8000" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
-
+          <div className="resizer ml-auto col-2">X</div>
           </div>
         </div>
         <div id="search-div">
