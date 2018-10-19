@@ -22,27 +22,27 @@ class MainPage extends Component {
   };
 
 
-          initDrag = (e) => {
-            let resizeable = document.querySelector('.resizeable');
-            console.log('dragging')
-            this.startX = e.clientX;
-            this.startY = e.clientY;
-            this.startWidth = parseInt ( document.defaultView.getComputedStyle(resizeable ).width, 10);
-            this.startHeight = parseInt ( document.defaultView.getComputedStyle(resizeable ).height, 10);
-            document.documentElement.addEventListener('mousemove', this.doDrag, false);
-            document.documentElement.addEventListener('mouseup', this.stopDrag, false);
-          };
+  initDrag = (e) => {
+    let resizeable = document.querySelector('.resizeable');
+    console.log('dragging')
+    this.startX = e.clientX;
+    this.startY = e.clientY;
+    this.startWidth = parseInt ( document.defaultView.getComputedStyle(resizeable ).width, 10);
+    this.startHeight = parseInt ( document.defaultView.getComputedStyle(resizeable ).height, 10);
+    document.documentElement.addEventListener('mousemove', this.doDrag, false);
+    document.documentElement.addEventListener('mouseup', this.stopDrag, false);
+  };
       
-          doDrag = (e) => {
-            let resizeable = document.querySelector('.resizeable');
-            resizeable.style.width = (this.startWidth + e.clientX - this.startX) + 'px';
-            resizeable.style.height = (this.startHeight + e.clientY - this.startY) + 'px';
-          };
+  doDrag = (e) => {
+    let resizeable = document.querySelector('.resizeable');
+    resizeable.style.width = (this.startWidth + e.clientX - this.startX) + 'px';
+    resizeable.style.height = (this.startHeight + e.clientY - this.startY) + 'px';
+  };
       
-          stopDrag = (e) => {
-            document.documentElement.removeEventListener('mousemove', this.doDrag, false);
-            document.documentElement.removeEventListener('mouseup', this.stopDrag, false);
-          };
+  stopDrag = (e) => {
+    document.documentElement.removeEventListener('mousemove', this.doDrag, false);
+    document.documentElement.removeEventListener('mouseup', this.stopDrag, false);
+  };
   
 
 
@@ -128,16 +128,18 @@ class MainPage extends Component {
   
   render() {
     return(
-      <div>
+      <div className="container-fluid">
         <div id="viewer-row" className="row">
-          <div id="viewer-col" className="col-10 mx-auto mb-3 mt-3 resizeable">
-          {/* backup mirador viewer */}
-          {/* <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> */}
-          {/* local mirador viewer */}
-          <iframe title="Mirador" src="http://localhost:8000" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
-          <div className="resizer ml-auto col-2">X</div>
+          <div id="viewer-col" className="col-lg-10 mx-auto mb-3 mt-3 resizeable d-flex">
+              {/* backup mirador viewer */}
+              {/* <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> */}
+              {/* local mirador viewer */}
+              <iframe title="Mirador" src="http://localhost:8000" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
+              </iframe>
+              <span className="resizer ml-auto">||</span>
           </div>
         </div>
+
         <div id="search-div">
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
