@@ -17,7 +17,8 @@ import Navbar from "./components/Navbar";
 class App extends Component {
   
   state = {
-    loggedOut: false
+    loggedOut: false,
+    signin: false
   };
 
   handleLogout = () => {
@@ -27,6 +28,7 @@ class App extends Component {
           this.setState({loggedOut: true})
         })
   }
+
   render() {
 
     
@@ -34,6 +36,7 @@ class App extends Component {
       <div className="App">
       <Router>
         <div>
+          
           <Navbar click={this.handleLogout}/>
           <Switch>
             <Route exact path="/" component={Signin} />

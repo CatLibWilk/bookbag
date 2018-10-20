@@ -46,20 +46,23 @@ class SignIn extends Component {
             <div className = "col-md-8 mt-5 border border-light mx-auto">
             <form>
               <div className="form-group">
-                <label>Email address</label>
+                <label className="float-left ml-2">Email address</label>
                 <input type="username" className="form-control" id="input-email" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleInput}></input>
                 
               </div>
-              <div className="form-group">
-                <label>Password</label>
+              <div className="form-group mt-5">
+                <label className="float-left ml-2">Password</label>
                 <input type="password" className="form-control" id="input-password" placeholder="Password" onChange={this.handleInput}></input>
               </div>
-              
-              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Log In</button>
 
-              <Link to={'/signup'}>
-              <button type="submit" className="btn btn-primary">Sign up</button>
-              </Link>
+              <div className="mt-5">
+
+                <button type="submit" className="btn col-3 auth-btn m-2" onClick={this.handleSubmit}>Log In</button>
+
+                <Link to={'/signup'}>
+                <button type="submit" className="btn col-3 auth-btn m-2">Sign up</button>
+                </Link>
+              </div>
               
          
             </form>
