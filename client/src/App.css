@@ -27,6 +27,32 @@ iframe{
   min-width: 100%;
 }
 
+iframe{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.clearfix {
+   overflow: auto;
+}
+
+.resizer {
+  border-radius: 10px;
+  background-color: peachpuff;
+  min-width: 20px;
+  cursor: se-resize;
+
+}
+#viewer-col {
+min-height: 25px;
+}
+.resizer-icon {
+  position: absolute;
+  bottom: 0;
+  right: -3.5px;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
