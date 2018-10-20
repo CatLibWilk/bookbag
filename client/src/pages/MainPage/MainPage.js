@@ -86,26 +86,52 @@ class MainPage extends Component {
     console.log(query);
     API.getBibs(query)
         .then( (returned) => {
+          if(returned.data.docs.length > 0){
+
+              console.log(returned.data.docs.length)
+          
           const returnedResources = []
           for(let i = 0; i<5; i++){
             let authorChecked = "";
-            if(returned.data.docs[i].author_name[0]){
-              authorChecked = returned.data.docs[i].author_name[0]
-            }else{
-              authorChecked=""
-            }
-            const newCitation = {
-              title: returned.data.docs[i].title,
-              creator: authorChecked,
-              url: `https://openlibrary.org${returned.data.docs[i].key}`,
-              publication_date: returned.data.docs[i].first_publish_year
+            try {
 
+              if(returned.data.docs[i].author_name[0]){
+                authorChecked = returned.data.docs[i].author_name[0]
+              }else{
+                authorChecked=""
+              }
             }
-            returnedResources.push(newCitation)
-            console.log(returnedResources)
+            catch(err){
+              console.log(err)
+            };
+
+            try {
+
+              const newCitation = {
+                title: returned.data.docs[i].title,
+                creator: authorChecked,
+                url: `https://openlibrary.org${returned.data.docs[i].key}`,
+                publication_date: returned.data.docs[i].first_publish_year
+                
+              };
+              returnedResources.push(newCitation);
+              console.log(returnedResources);
+            }
+
+            catch(err){
+              console.log(err);
+            };
+
           }
           
           this.setState({returnedResources: returnedResources});
+        }
+        else{
+        //   this.setState({returnedResources: this.state.returnedResources})
+          console.log('else')
+          console.log(returned.data.docs.length)
+          this.setState({returnedResources: []})
+        }
         });
   }
 
@@ -146,7 +172,7 @@ class MainPage extends Component {
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
           <div id="results-div">
-              {this.state.returnedResources.map(item => {
+              {this.state.returnedResources.length > 0 ? this.state.returnedResources.map(item => {
                 console.log(this.state.returnedResources)
                 return (
                   <div>
@@ -154,7 +180,7 @@ class MainPage extends Component {
                     {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
                   </div>
                 )
-              })}
+              }) : <h1>No Results Returned</h1>}
           </div>
         </div>
         <div className="row">
