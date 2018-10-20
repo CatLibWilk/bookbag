@@ -45,16 +45,16 @@ class SignUp extends Component {
             <div className = "col-md-8 mt-5 border border-light mx-auto">
             <form>
               <div className="form-group">
-                <label>Email address</label>
+                <label className="float-left">Email address</label>
                 <input type="username" className="form-control" id="input-email" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.handleInput}></input>
                 <small id="emailHelp" className="form-text text-muted">You'll use this as your username.</small>
               </div>
               <div className="form-group">
-                <label>Password</label>
+                <label className="float-left">Password</label>
                 <input type="password" className="form-control" id="input-password" placeholder="Password" onChange={this.handleInput}></input>
               </div>
               
-              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Sign Up</button>
+              <button type="submit" className="btn mt-5 auth-btn col-lg-10" onClick={this.handleSubmit}>Sign Up</button>
             </form>
             </div>
           </div>
