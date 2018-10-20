@@ -8,7 +8,8 @@ class MainPage extends Component {
   state = {
     citations: [],
     notes: [],
-    returnedResources: []
+    returnedResources: [],
+    searched: false
   };
   
   componentDidMount() {
@@ -124,7 +125,7 @@ class MainPage extends Component {
 
           }
           
-          this.setState({returnedResources: returnedResources});
+          this.setState({returnedResources: returnedResources, searched: true});
         }
         else{
         //   this.setState({returnedResources: this.state.returnedResources})
@@ -150,6 +151,10 @@ class MainPage extends Component {
         });
   };
 
+  handleClear = (e) => {
+    e.preventDefault();
+    this.setState({returnedResources: [], searched: false})
+  }
 
   
   render() {
@@ -168,19 +173,23 @@ class MainPage extends Component {
           </div>
         </div>
 
-        <div id="search-div">
+        <div id="search-div" className="mb-5">
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
-          <div id="results-div">
+          <div id="results-div" className="col-lg-10 mx-auto">
               {this.state.returnedResources.length > 0 ? this.state.returnedResources.map(item => {
                 console.log(this.state.returnedResources)
                 return (
+
                   <div>
-                    <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_types={["save"]}/>
-                    {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
+                    <div>
+                      <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_types={["save"]}/>
+                      {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
+                    </div>
                   </div>
                 )
-              }) : <h1>No Results Returned</h1>}
+              }) : this.state.searched ? <h1>No Results Returned</h1> : <div></div>}
+              {this.state.searched ? <div className="btn btn-primary float-right col-2" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
           </div>
         </div>
         <div className="row">
