@@ -14,6 +14,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.getClusters();
+    setTimeout(this.colorCards, 500)
   };
   
   getClusters = () => {
@@ -21,9 +22,20 @@ class HomePage extends Component {
         .then(result => {
           // console.log(result.data)
             this.setState({userClusters: result.data})
+            this.colorCards();  
         });
- 
-  };
+        
+      };
+
+    colorCards = () => {
+      console.log("colorCards running")
+      const cards = document.querySelectorAll('.card');
+      console.log(cards)
+      for(let i = 0; i<cards.length; i++){
+        console.log(`loop ${i}`)
+         cards[i].classList.add(`cardColor${i}`)
+      }
+     }
 
   handleDelete = (id) => {
     console.log("delete clicked")
@@ -45,7 +57,8 @@ class HomePage extends Component {
         .then(result => {
           console.log(result);
           this.getClusters();
-        })
+          this.colorCards();
+        });
   }
 
   render() {
@@ -56,6 +69,7 @@ class HomePage extends Component {
         <div className="mt-3">
           <Input label={'Add Cluster'} passedPlaceholder={'enter a name to create a new cluster'}click={this.createClick}/>
         </div>
+        {this.colorCards()}
         {this.state.userClusters.map(clus => (
           <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
           

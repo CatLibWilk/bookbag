@@ -101,6 +101,19 @@ min-height: 25px;
   color: white;
 }
 
+.cardColor0{
+  background-color: #F2E6E6;
+}
+.cardColor1{
+  background-color:#C9E2F2;
+}
+.cardColor2{
+  background-color:#9DE6EA;
+}
+.cardColor3{
+  background-color:#9DEADB;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
