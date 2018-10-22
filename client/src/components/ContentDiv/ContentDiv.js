@@ -21,14 +21,14 @@ const ContentDiv = (props) => {
   if(props.name==="citation-new"){
 
   return (
-    <div className={`${props.colWidth ? "col-6" : ""} card m-2`}>
+    <div className={`${props.colWidth ? "col-6" : ""} card m-4`}>
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           <p className="card-text">{props.creator}</p>
           <p className="card-text"><a href={props.url} target="_blank">{props.url}</a></p>
           <p className="card-text">{props.date}</p>
         
-        <div className="btn btn-delete" name={props.name} onClick={() => props.click(props.title, props.creator, props.url, props.date)}>{props.button_types[0]}</div>
+        <div className={`btn btn-delete ${props.button_width}`} name={props.name} onClick={() => props.click(props.title, props.creator, props.url, props.date)}>{props.button_types[0]}</div>
         </div>
       </div>
   )

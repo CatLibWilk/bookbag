@@ -183,13 +183,13 @@ class MainPage extends Component {
 
                   <div>
                     <div>
-                      <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_types={["save"]}/>
+                      <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_width={"col-10"} button_types={["save"]}/>
                       {/* <div className="btn btn-danger" onClick={(e) => {this.handleSaveCit(e, item.title, item.creator)}}>Save new Citation</div> */}
                     </div>
                   </div>
                 )
               }) : this.state.searched ? <h1>No Results Returned</h1> : <div></div>}
-              {this.state.searched ? <div className="btn btn-primary float-right col-2" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
+              {this.state.searched ? <div className="btn btn-primary float-right col-2 mr-4" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
           </div>
         </div>
         <div className="row">
