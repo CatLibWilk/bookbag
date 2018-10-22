@@ -163,10 +163,10 @@ class MainPage extends Component {
         <div id="viewer-row" className="row">
           <div id="viewer-col" className="col-lg-10 mx-auto mb-3 mt-3 resizeable d-flex">
               {/* backup mirador viewer */}
-              {/* <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> */}
+              <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
               {/* local mirador viewer */}
-              <iframe title="Mirador" className="mr-1" src="http://bookbagplus.herokuapp.com" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
-              </iframe>
+              {/* <iframe title="Mirador" className="mr-1" src="http://bookbagplus.herokuapp.com" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
+              </iframe> */}
               <div className="resizer ml-auto clearfix">
                 <span className="resizer-icon">=</span>  
               </div>
