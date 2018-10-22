@@ -51,7 +51,8 @@ class EditNote extends Component {
       return <Redirect to={`/mainpage/${this.props.match.params.clusId}`} />
     }
     return(
-      <Form click={(e) => this.handleSubmit} form_text={this.state.current} head-text={"Edit your note"}/>
+
+        <Form click={(e) => this.handleSubmit} form_text={this.state.current} head-text={"Edit your note"}/>
       )
   };
 };

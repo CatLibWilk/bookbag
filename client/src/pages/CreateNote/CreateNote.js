@@ -32,11 +32,19 @@ class CreateNote extends Component {
   }
 
   render() {
-    if(this.state.toMainPage === "true"){
-      return <Redirect to={`/mainpage/${this.props.match.params.id}`} />
-    }
+    // if(this.state.toMainPage === "true"){
+    //   return <Redirect to={`/mainpage/${this.props.match.params.id}`} />
+    // }
+
+   
     return(
-      <Form click={(e) => this.handleSubmit} text={"Enter a new note here"}/>
+
+        <div className="cointainer-fluid">
+        <Form click={(e) => this.handleSubmit} text={"Enter a new note here"}/>
+        </div>
+
+      
+
         // <div className="col-lg-10 mt-5 mx-auto">
         //   <form>
         //     <div className="form-group">
@@ -48,7 +56,9 @@ class CreateNote extends Component {
         //   </form>
         // </div>
       )
-  }
+    }
+  
+  
 }
 
 export default CreateNote;
