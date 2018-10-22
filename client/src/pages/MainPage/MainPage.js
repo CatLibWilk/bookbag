@@ -212,7 +212,7 @@ class MainPage extends Component {
 
                 
                   <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
-                    <div className="btn btn-danger">Create Note for This Citation</div>
+                    <div className="btn btn-create float-left d-block col">Create Note for This Citation</div>
                   </Link>
                   
               </div>
@@ -233,7 +233,7 @@ class MainPage extends Component {
                }
           })}
           <Link to={`${this.props.match.params.id}/createnote`}>
-            <div className="btn btn-danger">Create Note</div>
+            <div className="btn btn-create float-left d-block col">Create Note</div>
           </Link>
         </div>
         </div>

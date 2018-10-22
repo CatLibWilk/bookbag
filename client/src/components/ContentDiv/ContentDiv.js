@@ -13,7 +13,7 @@ const ContentDiv = (props) => {
           <h6 className="card-subtitle mb-2 text-muted"><a href={props.url} target="_blank">{props.url}</a></h6>
           <p className="card-text">{props.body}</p>
         
-        <div className="btn btn-danger" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[0]}</div>
+        <div className="btn btn-delete" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[0]}</div>
         </div>
       </div>
     ); 
@@ -28,7 +28,7 @@ const ContentDiv = (props) => {
           <p className="card-text"><a href={props.url} target="_blank">{props.url}</a></p>
           <p className="card-text">{props.date}</p>
         
-        <div className="btn btn-danger" name={props.name} onClick={() => props.click(props.title, props.creator, props.url, props.date)}>{props.button_types[0]}</div>
+        <div className="btn btn-delete" name={props.name} onClick={() => props.click(props.title, props.creator, props.url, props.date)}>{props.button_types[0]}</div>
         </div>
       </div>
   )
@@ -46,9 +46,9 @@ const ContentDiv = (props) => {
           <p className="card-text">{props.body}</p>
         
         <Link to={props.routeSet ? `${props.routeSet}` : "/mainpage/" + props.id} >
-          <div className="btn btn-warning" name={props.name} id={props.id}>{props.button_types[0]}</div>
+          <div className="btn contentDiv-btn1 m-2" name={props.name} id={props.id}>{props.button_types[0]}</div>
         </Link>
-        <div className="btn btn-danger" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[1]}</div>
+        <div className="btn contentDiv-btn2 m-2" name={props.name} id={props.id} onClick={() => props.click(props.id, props.name)}>{props.button_types[1]}</div>
         </div>
       </div>
     ); 

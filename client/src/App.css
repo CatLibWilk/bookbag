@@ -75,8 +75,27 @@ min-height: 25px;
   background-color: lightblue;
 }
 
+.contentDiv-btn1, .contentDiv-btn2 {
+  min-height: 40px;
+  border-radius: 10px;
+  color: white;
+
+}
+
+.contentDiv-btn1 {
+  background-color: #c23ece;
+}
+.contentDiv-btn2 {
+background-color: #3e54ce;
+}
+
 .auth-btn:hover {
   box-shadow: 2px 2px 2px black;
+}
+
+.btn-create, .btn-delete {
+  background-color: #ce3e92;
+  color: white;
 }
 
 @keyframes App-logo-spin {
