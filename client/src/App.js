@@ -53,8 +53,6 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
-          <div className="footer col-12">BookBag+ 2018</div>
-        
       </div>
     );
   }

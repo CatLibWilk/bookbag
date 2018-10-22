@@ -74,7 +74,7 @@ min-height: 25px;
 .resizer-icon {
   position: absolute;
   bottom: 0;
-  right: -3.5px;
+  right: 0.5px;
 
 }
 
@@ -134,14 +134,14 @@ min-height: 25px;
 }
 
 .footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
   /* left: 0; */
   background-color: rgb(253, 255, 159);
   min-height: 5%;
-  margin-top: 20%;
-  margin-bottom: 0;
-  padding: 25px;
+  /* margin-top: 20%; */
+  /* margin-bottom: 0; */
+  /* padding: 25px; */
 }
 
 @keyframes App-logo-spin {

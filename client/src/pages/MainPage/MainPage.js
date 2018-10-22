@@ -159,7 +159,7 @@ class MainPage extends Component {
   
   render() {
     return(
-      <div className="container-fluid">
+      <div className="container-fluid mb-5">
         <div id="viewer-row" className="row">
           <div id="viewer-col" className="col-lg-10 mx-auto mb-3 mt-3 resizeable d-flex">
               {/* backup mirador viewer */}
@@ -172,15 +172,15 @@ class MainPage extends Component {
               </div>
           </div>
         </div>
-
-        <div id="search-div" className="mb-5">
+        <div className="row">
+        <div id="search-div" className=" col mb-5">
           <h1>Find Resources</h1>
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
           <div id="results-div" className="col-lg-10 mx-auto">
               {this.state.returnedResources.length > 0 ? this.state.returnedResources.map(item => {
                 console.log(this.state.returnedResources)
                 return (
-
+                  
                   <div>
                     <div>
                       <ContentDiv name={"citation-new"} title={item.title} creator={item.creator} date={item.date} url={item.url} click={this.handleSaveCit} button_width={"col-10"} button_types={["save"]}/>
@@ -192,7 +192,8 @@ class MainPage extends Component {
               {this.state.searched ? <div className="btn btn-primary float-right col-2 mr-4" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
           </div>
         </div>
-        <div className="row">
+        </div>
+        <div className="row mt-1">
             <div className="col-lg-6 float-left">
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {
@@ -212,7 +213,7 @@ class MainPage extends Component {
 
                 
                   <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
-                    <div className="btn btn-create float-left d-block col">Create Note for This Citation</div>
+                    <div className="btn btn-create mx-auto mt-3 mb-3 d-block col-10">Create Note for This Citation</div>
                   </Link>
                   
               </div>
@@ -233,7 +234,7 @@ class MainPage extends Component {
                }
           })}
           <Link to={`${this.props.match.params.id}/createnote`}>
-            <div className="btn btn-create float-left d-block col">Create Note</div>
+            <div className="btn btn-create mx-auto mt-5 d-block col-6">Create Note</div>
           </Link>
         </div>
         </div>
