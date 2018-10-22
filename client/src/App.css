@@ -82,11 +82,14 @@ min-height: 25px;
 
 }
 
+.contentDiv-btn1, .contentDiv-btn2 {
+  min-width: 80px;
+}
 .contentDiv-btn1 {
   background-color: #c23ece;
 }
 .contentDiv-btn2 {
-background-color: #3e54ce;
+  background-color: #3e54ce;
 }
 
 .auth-btn:hover {
