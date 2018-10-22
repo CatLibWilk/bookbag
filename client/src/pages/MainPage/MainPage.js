@@ -165,7 +165,7 @@ class MainPage extends Component {
               {/* backup mirador viewer */}
               {/* <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> */}
               {/* local mirador viewer */}
-              <iframe title="Mirador" className="mr-1" src={process.env.PORT} allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
+              <iframe title="Mirador" className="mr-1" src="http://bookbagplus.herokuapp.com" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
               </iframe>
               <div className="resizer ml-auto clearfix">
                 <span className="resizer-icon">=</span>  

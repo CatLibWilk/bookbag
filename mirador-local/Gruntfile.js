@@ -185,7 +185,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: process.env.PORT,
-          base: '.'
+          base: '/mirador'
         }
       }
     },
