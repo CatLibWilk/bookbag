@@ -32,9 +32,9 @@ class CreateNote extends Component {
   }
 
   render() {
-    // if(this.state.toMainPage === "true"){
-    //   return <Redirect to={`/mainpage/${this.props.match.params.id}`} />
-    // }
+    if(this.state.toMainPage === "true"){
+      return <Redirect to={`/mainpage/${this.props.match.params.id}`} />
+    }
 
    
     return(

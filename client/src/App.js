@@ -12,6 +12,7 @@ import Signin from "./pages/SignIn";
 import Signup from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
 
 
 class App extends Component {
