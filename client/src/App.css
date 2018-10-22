@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  
+}
+
+body{
+  background-color: rgb(254, 255, 214);
 }
 
 .jumbotron {
@@ -101,6 +106,10 @@ min-height: 25px;
   color: white;
 }
 
+.card{
+  box-shadow: 2px 5px 10px #5a618a;
+}
+
 .cardColor0{
   background-color: #F2E6E6;
 }
@@ -112,6 +121,22 @@ min-height: 25px;
 }
 .cardColor3{
   background-color:#9DEADB;
+}
+
+.input-group {
+  border-radius: 3px;
+  box-shadow: 2px 3px 8px #696e8f;
+
+}
+
+.footer {
+  position: relative;
+  /* bottom: 0; */
+  /* left: 0; */
+  background-color: rgb(253, 255, 159);
+  min-height: 5%;
+  margin-top: 20%;
+  padding: 25px;
 }
 
 @keyframes App-logo-spin {

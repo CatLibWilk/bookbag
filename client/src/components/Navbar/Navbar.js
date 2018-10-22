@@ -18,7 +18,7 @@ class Navbar extends Component {
       this.props.history.push('/');
       this.setState({loggedOut: false});
     };
-
+    
     return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="#">BookBag U+</a>

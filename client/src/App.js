@@ -50,6 +50,7 @@ class App extends Component {
             <Route exact path="/editcitation/:id" component={EditNote} />
             <Route component={NoMatch} />
           </Switch>
+          <div className="footer col-12">BookBag+ 2018</div>
         </div>
       </Router>
         

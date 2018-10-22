@@ -32,8 +32,13 @@ class HomePage extends Component {
       const cards = document.querySelectorAll('.card');
       console.log(cards)
       for(let i = 0; i<cards.length; i++){
-        console.log(`loop ${i}`)
-         cards[i].classList.add(`cardColor${i}`)
+        if(i<4){
+          cards[i].classList.add(`cardColor${i}`)
+        }if(i>4 && i<8){
+          cards[i].classList.add(`cardColor${i-4}`)
+        }else{
+          cards[i].classList.add(`cardColor0`)
+        }
       }
      }
 
