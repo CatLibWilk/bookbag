@@ -131,7 +131,7 @@ class MainPage extends Component {
         //   this.setState({returnedResources: this.state.returnedResources})
           console.log('else')
           console.log(returned.data.docs.length)
-          this.setState({returnedResources: []})
+          this.setState({returnedResources: [], searched: true})
         }
         });
   }
