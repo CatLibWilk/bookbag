@@ -4,8 +4,8 @@
 }
 
 body{
-  background-color: rgb(254, 255, 214);
-  /* background-image: url('./images/main-background.jpg'); */
+  /* background-color: rgb(254, 255, 214); */
+  background-image: url('./images/main-background.jpg');
   margin: 0; padding: 0; height: 100%; width: 100%;
 }
 html {
@@ -123,6 +123,11 @@ min-height: 25px;
 }
 
 .card{
+  box-shadow: 2px 5px 10px #5a618a;
+}
+
+.sign-form {
+  border-radius: 25px;
   box-shadow: 2px 5px 10px #5a618a;
 }
 

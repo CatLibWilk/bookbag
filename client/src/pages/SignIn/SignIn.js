@@ -43,7 +43,7 @@ class SignIn extends Component {
         <Jumbotron />
         <div className = "container-fluid">
           <div className = "row">
-            <div className = "col-md-8 mt-5 border border-light mx-auto">
+            <div className = "col-md-8 mt-5 mb-5 border border-light bg-light sign-form p-3 mx-auto">
             <form>
               <div className="form-group">
                 <label className="float-left ml-2">Email address</label>
