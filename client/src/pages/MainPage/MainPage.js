@@ -197,11 +197,11 @@ class MainPage extends Component {
             <div className="col-lg-6 float-left">
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {
-
+              console.log(citation)
             return(
               <div className="citation-container p-3 m-4">
 
-              <ContentDiv id={citation.id} onPage={"main"} name={"citation"} button_types={["delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
+              <ContentDiv id={citation.id} onPage={"main"} name={"citation"} button_types={["delete"]} author={citation.author} title={citation.title} url={citation.url} click={this.handleDelete}/>
                   <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
                     <div className="btn btn-create mx-auto mt-3 mb-3 d-block col-10">Create Note for This Citation</div>
                   </Link>
