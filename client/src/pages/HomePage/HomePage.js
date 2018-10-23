@@ -14,8 +14,20 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.getClusters();
-    setTimeout(this.colorCards, 500)
+    setTimeout(this.colorCards, 500);
+    setTimeout(this.slideIn, 1000)
   };
+
+  slideIn = () => {
+    console.log('slidein running')
+    document.querySelector(".mainpage-welcome").classList.add('main-slide');
+    setTimeout(this.mainOut, 6000);
+    
+  };
+
+  mainOut = () => {
+    document.querySelector(".mainpage-welcome").classList.add('main-out');
+  }
   
   getClusters = () => {
     API.getClusters()
@@ -75,6 +87,10 @@ class HomePage extends Component {
           <Input label={'Add Cluster'} passedPlaceholder={'enter a name to create a new cluster'}click={this.createClick}/>
         </div>
         {this.colorCards()}
+        <div id="mainpage-welcome" className="col-8 mx-auto mainpage-welcome">
+          <h1>Welcome to Bookbag+!</h1>
+          <p>Enter a new cluster name to get a research package started, or select any of the saved clusters to view your current work!</p>
+        </div>
         {this.state.userClusters.map(clus => (
           <ContentDiv margin={"m-3"} key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
           

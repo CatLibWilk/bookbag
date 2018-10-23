@@ -135,6 +135,33 @@ min-height: 25px;
   opacity: 0
 }
 
+.mainpage-welcome {
+  position: absolute;
+  background-color: peachpuff;
+  border-radius: 25px;
+  min-height: 300px;
+  left: -1500px;
+  margin-bottom: 400px;
+  padding: 10% 0%;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 15px 15px 25px #5a618a;
+}
+
+.main-slide {
+  left: 15%;
+  transition: 2s ease-in-out;
+  
+}
+
+.main-out{
+  opacity: 0;
+  transition: .5s ease-out;
+  visibility: 0;
+  z-index: -1;
+  margin-bottom: 0;
+}
+
 .slidein {
   opacity: 1;
   transition: 0.8s ease-in;
@@ -159,7 +186,6 @@ min-height: 25px;
 }
 
 .footer {
-
   bottom: 0;
   width: 100%;
   overflow: hidden;
