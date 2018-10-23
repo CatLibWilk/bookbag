@@ -128,9 +128,17 @@ min-height: 25px;
 
 .sign-form {
   border-radius: 25px;
-  box-shadow: 2px 5px 10px #5a618a;
+  box-shadow: 5px 5px 15px #5a618a;
 }
 
+.slide-wrapper{
+  opacity: 0
+}
+
+.slidein {
+  opacity: 1;
+  transition: 0.8s ease-in;
+}
 .cardColor0{
   background-color: #F2E6E6;
 }
