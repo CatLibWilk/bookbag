@@ -199,7 +199,7 @@ class MainPage extends Component {
           {this.state.citations.map(citation => {
 
             return(
-              <div>
+              <div className="citation-container p-3 m-4">
 
               <ContentDiv id={citation.id} onPage={"main"} name={"citation"} button_types={["delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
                   <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>

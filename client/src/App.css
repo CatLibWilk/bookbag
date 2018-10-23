@@ -126,6 +126,12 @@ min-height: 25px;
   box-shadow: 2px 5px 10px #5a618a;
 }
 
+.citation-container {
+  background-color: peachpuff;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px  #51556d;
+}
+
 .sign-form {
   border-radius: 25px;
   box-shadow: 5px 5px 15px #5a618a;
@@ -145,13 +151,23 @@ min-height: 25px;
   padding: 10% 0%;
   text-align: center;
   z-index: 1;
-  box-shadow: 15px 15px 25px #5a618a;
+  box-shadow: 15px 15px 15px #f3e8acb4;
 }
 
 .main-slide {
   left: 15%;
   transition: 2s ease-in-out;
   
+}
+
+#button-addon2 {
+  background-color: #faf3c9;
+}
+
+.note-body {
+  border-radius: 15px;
+  background-color: rgb(231, 233, 248);
+
 }
 
 .main-out{
