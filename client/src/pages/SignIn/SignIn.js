@@ -13,6 +13,7 @@ class SignIn extends Component {
 
   componentDidMount() {
     setTimeout(this.slideIn, 1000)
+    localStorage.setItem('helped', "false")
   }
   handleInput = (e) => {
     const type = e.target.getAttribute('type')

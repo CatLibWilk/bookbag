@@ -9,17 +9,28 @@ import Input from "../../components/Input";
 
 class HomePage extends Component {
   state = {
-    userClusters: []
+    userClusters: [],
+    helped: "false"
   }
 
   componentDidMount() {
+    const localStor = localStorage.getItem('helped');
+    this.setState({helped: localStor})
     this.getClusters();
+
     setTimeout(this.colorCards, 500);
-    setTimeout(this.slideIn, 1000)
+    setTimeout(this.helpCheck, 50);
+  };
+
+  helpCheck = () => {
+
+    if(this.state.helped === "false"){
+      setTimeout(this.slideIn, 1000)
+    };
   };
 
   slideIn = () => {
-    console.log('slidein running')
+    // console.log('slidein running')
     document.querySelector(".mainpage-welcome").classList.add('main-slide');
     setTimeout(this.mainOut, 6000);
     
@@ -27,6 +38,8 @@ class HomePage extends Component {
 
   mainOut = () => {
     document.querySelector(".mainpage-welcome").classList.add('main-out');
+    localStorage.setItem('helped', "true");
+
   }
   
   getClusters = () => {
@@ -40,9 +53,9 @@ class HomePage extends Component {
       };
 
     colorCards = () => {
-      console.log("colorCards running")
+      // console.log("colorCards running")
       const cards = document.querySelectorAll('.card');
-      console.log(cards)
+      // console.log(cards)
       for(let i = 0; i<cards.length; i++){
         if(i<4){
           cards[i].classList.add(`cardColor${i}`)
@@ -55,7 +68,7 @@ class HomePage extends Component {
      }
 
   handleDelete = (id) => {
-    console.log("delete clicked")
+    // console.log("delete clicked")
     API.deleteCluster(id)
         .then(result => {
           console.log(result);
@@ -64,7 +77,7 @@ class HomePage extends Component {
   };
   
   createClick = (e) => {
-    console.log("create clicked")
+    // console.log("create clicked")
 
     const input = e.target.parentElement.parentElement.firstElementChild;
     const newClusterName = input.value;
@@ -72,7 +85,7 @@ class HomePage extends Component {
 
     API.createCluster(newClusterName)
         .then(result => {
-          console.log(result);
+          // console.log(result);
           this.getClusters();
           this.colorCards();
         });
