@@ -20,20 +20,4 @@ router.route("/login")
             });
           });
 
-
-  // router.route("/logout")
-  //         .get(function(req, res) {
-  //   req.session.destroy(function() {
-  //     res.redirect("/");
-  //   });
-  // }
-  // function isLoggedIn(req, res, next) {
-  //   if (req.isAuthenticated()) {
-  //     return next();
-  //   }
-
-  //   res.redirect("/signin");
-  // }
-
-
 module.exports = router;

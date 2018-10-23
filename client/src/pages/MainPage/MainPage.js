@@ -189,7 +189,7 @@ class MainPage extends Component {
                   </div>
                 )
               }) : this.state.searched ? <h1>No Results Returned</h1> : <div></div>}
-              {this.state.searched ? <div className="btn btn-primary float-right col-2 mr-4" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
+              {this.state.searched ? <div className="btn btn-clear float-right col-2 mr-4" onClick={(e) => {this.handleClear(e)}}>clear</div> : <div></div>}
           </div>
         </div>
         </div>

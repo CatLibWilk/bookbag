@@ -112,7 +112,11 @@ min-height: 25px;
   color: white;
 }
 
-.btn-create{
+.btn-clear {
+  background-color: rgb(255, 200, 152);
+}
+
+.btn-create, .btn-clear{
   box-shadow: 3px 3px 5px black;
 
 }
@@ -141,14 +145,13 @@ min-height: 25px;
 }
 
 .footer {
-  position: fixed;
+
   bottom: 0;
-  /* left: 0; */
+  width: 100%;
+  overflow: hidden;
   background-color: rgb(253, 255, 159);
-  min-height: 5%;
-  /* margin-top: 20%; */
-  /* margin-bottom: 0; */
-  /* padding: 25px; */
+
+  padding: 25px;
 }
 
 @keyframes App-logo-spin {
