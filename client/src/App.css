@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+p, h1, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
 body{
   /* background-color: rgb(254, 255, 214); */
   background-image: url('./images/main-background.jpg');
@@ -142,6 +146,9 @@ min-height: 25px;
 }
 
 .mainpage-welcome {
+  color: white;
+  font-size: 24px;
+  text-shadow: 2px 2px 2px black;
   position: absolute;
   background-color: peachpuff;
   border-radius: 25px;
@@ -151,11 +158,12 @@ min-height: 25px;
   padding: 10% 0%;
   text-align: center;
   z-index: 1;
-  box-shadow: 15px 15px 15px #f3e8acb4;
+  box-shadow: 10px 10px 10px #f3e8acb4;
 }
 
 .main-slide {
   left: 15%;
+  top: 25%;
   transition: 2s ease-in-out;
   
 }
