@@ -38,7 +38,7 @@ const ContentDiv = (props) => {
   }else{
     return (
       
-      <div className={`${props.colWidth ? "col-6" : ""} card m-2`}>
+      <div className={`${props.colWidth ? "col-6" : ""} ${props.margin ? `${props.margin}` : "m-2"} card m-2`}>
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           {/* will add some of these back in when I have stuff to populate (maybe saved date?) */}

@@ -76,7 +76,7 @@ class HomePage extends Component {
         </div>
         {this.colorCards()}
         {this.state.userClusters.map(clus => (
-          <ContentDiv key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
+          <ContentDiv margin={"m-3"} key={clus.id} id={clus.id} title={clus.title} button_types={["open", "delete"]} click={this.handleDelete} />
           
           ))}
       </div>

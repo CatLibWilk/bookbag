@@ -96,18 +96,25 @@ min-height: 25px;
 }
 .contentDiv-btn1 {
   background-color: #c23ece;
+
 }
 .contentDiv-btn2 {
   background-color: #3e54ce;
+
 }
 
 .auth-btn:hover {
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 3px 3px 5px black;
 }
 
 .btn-create, .btn-delete {
   background-color: #ce3e92;
   color: white;
+}
+
+.btn-create{
+  box-shadow: 3px 3px 5px black;
+
 }
 
 .card{
