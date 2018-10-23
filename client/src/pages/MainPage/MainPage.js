@@ -202,6 +202,9 @@ class MainPage extends Component {
               <div>
 
               <ContentDiv id={citation.id} onPage={"main"} name={"citation"} button_types={["delete"]} title={citation.title} url={citation.url} click={this.handleDelete}/>
+                  <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
+                    <div className="btn btn-create mx-auto mt-3 mb-3 d-block col-10">Create Note for This Citation</div>
+                  </Link>
               
               {this.state.notes.map(note => {
                 if(note.CitationId === citation.id){
@@ -212,9 +215,6 @@ class MainPage extends Component {
                 })}
 
                 
-                  <Link to={`${this.props.match.params.id}/${citation.id}/createnote`}>
-                    <div className="btn btn-create mx-auto mt-3 mb-3 d-block col-10">Create Note for This Citation</div>
-                  </Link>
                   
               </div>
               )
