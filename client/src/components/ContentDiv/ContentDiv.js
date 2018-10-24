@@ -6,7 +6,7 @@ const ContentDiv = (props) => {
 
     return (
       
-      <div className={`${props.colWidth ? "col-6" : ""} card m-2`}>
+      <div className={`${props.colWidth ? "col-md-6" : ""} card m-2`}>
         <div className="card-body">
           <h4 className="card-title">{props.title}</h4>
           <h5 className="card-title">{props.author}</h5>
@@ -21,7 +21,7 @@ const ContentDiv = (props) => {
   if(props.name==="citation-new"){
 
   return (
-    <div className={`${props.colWidth ? "col-6" : ""} card m-4`}>
+    <div className={`${props.colWidth ? "col-md-6" : ""} card m-4`}>
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           <p className="card-text">{props.creator}</p>
@@ -38,7 +38,7 @@ const ContentDiv = (props) => {
   }else{
     return (
       
-      <div className={`${props.colWidth ? "col-6" : ""} ${props.margin ? `${props.margin}` : "m-2"} card m-2 mb-1 note-body`}>
+      <div className={`${props.colWidth ? "col-md-6" : ""} ${props.margin ? `${props.margin}` : "m-2"} card m-2 mb-1 note-body`}>
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{props.url}</h6>

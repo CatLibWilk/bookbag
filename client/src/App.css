@@ -219,19 +219,49 @@ min-height: 25px;
 
   padding: 25px;
 }
-@media (max-width: 450px){
 
-  .jumbotron h1{
-    font-size: 50px;
-    };
-  }
-@media (max-width: 450px){
+    
+  @media (max-width: 450px) {
+      
+    .jumbotron h1{
+        font-size: 50px;
+        };
+      
 
-  #welcome-p{
-    font-size: 16px;
-    }
-    #mainpage-welcome{
-      max-height: 200px;
+    #welcome-p{
+      font-size: 16px;
       }
-  }
 
+    #mainpage-welcome{
+        max-height: 200px;
+        }
+      
+
+    .App {
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+
+    .btn-create {
+        font-size: 14px;
+      }
+
+    .resizer {
+        visibility: hidden;
+      }
+
+    .navbar {
+        z-index: 1;
+        width: 105%;
+        left: -5px;
+      }
+
+      .input-group-append {
+        z-index: -1;
+      }
+      
+    }
+        
+    @media (max-width: 450px) {
+
+    }
