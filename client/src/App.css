@@ -246,6 +246,21 @@ min-height: 25px;
         font-size: 14px;
       }
 
+    /* .contentDiv-btn1 {
+        visibility: hidden;
+        position: absolute;
+        z-index: -2;
+        border: 0;
+        padding: 0;
+        height: 0px;
+      } */
+
+    a[href*="editnote"]{
+      visibility: hidden;
+      z-index: -1;
+      position: absolute;
+    }
+
     .resizer {
         visibility: hidden;
       }
@@ -256,13 +271,23 @@ min-height: 25px;
         left: -5px;
       }
 
-      .input-group-append {
+    .input-group-append {
         z-index: 0;
       }
 
-      iframe {
+    iframe {
         min-height: 300px;
       }
+
+    .nav-link {
+      padding: 0;
+
+      }
+
+    input::placeholder {
+      font-size: 11px;
+
+      }
       
-    }
+  }
         
