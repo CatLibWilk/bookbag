@@ -18,13 +18,15 @@ html {
 
 .jumbotron {
   background-image: linear-gradient(to right top, #7b3ece, #556ae9, #288bf8, lightblue);
+  overflow: auto;
   color: white;
   font-family: 'Sniglet', cursive;
   text-shadow: 2px 2px 8px rgb(151, 213, 255);
 }
 
 .jumbotron h1 {
-  font-size: 100px
+  font-size: 100px;
+  font-family: "sniglet";
 }
 
 .jumbotron p {
@@ -217,12 +219,19 @@ min-height: 25px;
 
   padding: 25px;
 }
+@media (max-width: 450px){
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .jumbotron h1{
+    font-size: 50px;
+    };
   }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 450px){
+
+  #welcome-p{
+    font-size: 16px;
+    }
+    #mainpage-welcome{
+      max-height: 200px;
+      }
   }
-}
+
