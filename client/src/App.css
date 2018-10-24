@@ -259,6 +259,10 @@ min-height: 25px;
       .input-group-append {
         z-index: 0;
       }
+
+      iframe {
+        min-height: 300px;
+      }
       
     }
         
