@@ -220,16 +220,26 @@ min-height: 25px;
   padding: 25px;
 }
 
-    
+  @media (max-width: 450px) {
+    .jumbotron p {
+      visibility: hidden;
+      position: absolute;
+    }
+  }
   @media (max-width: 450px) {
       
     .jumbotron h1{
         font-size: 50px;
         };
+    
+    .jumbotron p {
+      visibility: hidden;
+    }
       
 
     #welcome-p{
       font-size: 16px;
+
       }
 
     #mainpage-welcome{
@@ -245,15 +255,6 @@ min-height: 25px;
     .btn-create {
         font-size: 14px;
       }
-
-    /* .contentDiv-btn1 {
-        visibility: hidden;
-        position: absolute;
-        z-index: -2;
-        border: 0;
-        padding: 0;
-        height: 0px;
-      } */
 
     a[href*="editnote"]{
       visibility: hidden;
