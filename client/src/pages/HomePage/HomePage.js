@@ -98,7 +98,7 @@ class HomePage extends Component {
           <Input label={'Add Cluster'} passedPlaceholder={'enter a name to create a new cluster'}click={this.createClick}/>
         </div>
         {this.colorCards()}
-        <div id="mainpage-welcome" className="col-8 mx-auto mainpage-welcome p-1 clearfix">
+        <div id="mainpage-welcome" className="col-8 mx-auto mainpage-welcome clearfix">
           <h1 id="welcome-h1">Welcome to Bookbag+!</h1>
           <p id="welcome-p">Enter a new cluster name to get a research package started, or select any of the saved clusters to view your current work!</p>
         </div>
