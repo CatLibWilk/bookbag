@@ -216,7 +216,9 @@ class MainPage extends Component {
               {this.state.notes.map(note => {
                 if(note.CitationId === citation.id){
                   return (
-                    <ContentDiv routeSet={`${this.props.match.params.id}/editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
+                    <div className="row">
+                      <ContentDiv routeSet={`${this.props.match.params.id}/editnote/${note.id}`} id={note.id} name={"note"} button_types={["edit", "delete"]} colWidth={"colWidth"} body={note.body} click={this.handleDelete}/>
+                    </div>
                     )
                   }
                 })}
