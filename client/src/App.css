@@ -123,6 +123,7 @@ min-height: 25px;
 
 .btn-clear {
   background-color: rgb(255, 200, 152);
+  float: right;
 }
 
 .btn-create, .btn-clear{
@@ -269,6 +270,10 @@ min-height: 25px;
     .btn-create {
         font-size: 14px;
       }
+    
+    .btn-clear {
+      float: none;
+    }
 
     a[href*="editnote"]{
       visibility: hidden;
