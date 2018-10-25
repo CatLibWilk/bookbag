@@ -42,19 +42,7 @@ class CreateNote extends Component {
         <div className="cointainer-fluid">
         <Form click={(e) => this.handleSubmit} text={"Enter a new note here"}/>
         </div>
-
-      
-
-        // <div className="col-lg-10 mt-5 mx-auto">
-        //   <form>
-        //     <div className="form-group">
-        //       <label>Enter a new note here</label>
-        //       <textarea className="form-control" id="text-area" rows="3"></textarea>
-        //     </div>
-        //     {console.log(this.props.match.params.citId)}
-        //     <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} type="submit">Submit</button>
-        //   </form>
-        // </div>
+        
       )
     }
   

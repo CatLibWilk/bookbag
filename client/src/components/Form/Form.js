@@ -11,7 +11,7 @@ const Form = (props) => {
             <textarea className="form-control" placeholder={props.form_text} id="text-area" rows="3"></textarea>
           </div>
 
-          <button className="btn btn-primary" onClick={props.click()} type="submit">Submit</button>
+          <button className="btn btn-create" onClick={props.click()} type="submit">Submit</button>
         </form>
       </div>
     </div>
