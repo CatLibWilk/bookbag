@@ -53,6 +53,11 @@ html {
   color: #61dafb;
 }
 
+#viewer-expander {
+  visibility: hidden;
+  position: absolute;
+}
+
 iframe{
   min-height: 100%;
   min-width: 100%;
@@ -72,6 +77,10 @@ iframe{
 #viewer-col {
 min-height: 25px;
 
+}
+
+.viewer-expand {
+  height: 600px;
 }
 
 #welcome-h1 {
@@ -160,11 +169,11 @@ min-height: 25px;
   border-radius: 25px;
   min-height: 300px;
   left: -1500px;
-  margin-bottom: 400px;
+  /* margin-bottom: 400px; */
   padding: 10% 2%;
   text-align: center;
   z-index: 1;
-  box-shadow: 10px 10px 15px #858caf;
+  box-shadow: 10px 10px 10px #858caf;
 }
 
 .main-slide {
@@ -224,7 +233,15 @@ min-height: 25px;
   padding: 25px;
 }
 
-
+@media (max-width: 450px) {
+  #viewer-expander {
+    position: relative;
+    visibility: visible;
+    font-size: 12px;
+    max-height: 30px;
+    background-color: rgb(255, 185, 185)
+  }
+}
 @media (max-width: 450px) {
 
     .auth-btn {

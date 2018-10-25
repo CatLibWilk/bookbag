@@ -18,6 +18,7 @@ router.route("/login")
             req.session.destroy(function() {
               res.redirect("/");
             });
-          });
+    });
+
 
 module.exports = router;

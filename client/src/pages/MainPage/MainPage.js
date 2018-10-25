@@ -9,7 +9,8 @@ class MainPage extends Component {
     citations: [],
     notes: [],
     returnedResources: [],
-    searched: false
+    searched: false,
+    viewer_expanded: false
   };
   
   componentDidMount() {
@@ -161,14 +162,31 @@ class MainPage extends Component {
   handleClear = (e) => {
     e.preventDefault();
     this.setState({returnedResources: [], searched: false})
-  }
+  };
+
+  handleExpand = () => {
+    if(!this.state.viewer_expanded){
+      console.log('expanding')
+      console.log(this.state.viewer_expanded)
+      console.log(typeof(this.state.viewer_expanded))
+      document.querySelector('iframe').classList.add('viewer-expand');
+      this.setState({viewer_expanded: true})
+    }else{
+      console.log('despanding')
+      console.log(this.state.viewer_expanded)
+      console.log(typeof(this.state.viewer_expanded))
+      document.querySelector('iframe').classList.remove('viewer-expand');
+      this.setState({viewer_expanded: false})
+
+    }
+  };
 
   
   render() {
     return(
       <div className="container-fluid mb-5">
         <div id="viewer-row" className="row">
-          <div id="viewer-col" className="col-lg-10 mx-auto mb-3 mt-3 resizeable d-flex">
+          <div id="viewer-col" className="col-lg-10 mx-auto mb-2 mt-3 resizeable d-flex">
               {/* backup mirador viewer */}
               <iframe title="Mirador" src="http://projectmirador.org/demo/" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
               {/* local mirador viewer */}
@@ -178,6 +196,7 @@ class MainPage extends Component {
                 <span className="resizer-icon">=</span>  
               </div>
           </div>
+              <div id="viewer-expander" className="btn col-10 mx-auto" onClick={this.handleExpand}>Expand/Minimize Viewer</div>
         </div>
         <div className="row">
         <div id="search-div" className=" col mb-5">
