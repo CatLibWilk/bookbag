@@ -5,7 +5,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = models.User;
 
 module.exports = function(){
-    console.log('passport function running')
+
 
     passport.serializeUser(function(user, done) {
       done(null, user.id);
@@ -17,7 +17,7 @@ module.exports = function(){
         if (user) {
           done(null, user.get());
         } else {
-          console.log('couldnt find user deserialize')
+
           done(user.errors, null);
         }
       });
@@ -29,19 +29,19 @@ module.exports = function(){
           
         function(username, password, done) {
           const generateHash = function(password) {
-            console.log('generate hash running')
+
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
           };
           console.log('passport.js local-signup runngin')
             User.findOne({ where: { username: username } }).then(function(user) {
                 if (user) {
-                  console.log('already in suystem')
+
                   return done(null, false, {
               
                     message: "That email is already taken"
                   });
                 } else {
-                    console.log('not in database')
+
                     const genPass = generateHash(password)
                   var data = {
                     username: username,
@@ -77,18 +77,18 @@ module.exports = function(){
 
           User.findOne({ where: { username: username } })
             .then(function(user) {
-              console.log("database check made")
+
               if (!user) {
-                console.log('email doesnt exist')
+
                 return done(null, false, { message: "Email does not exist" });
               }
 
               if (!isValidPassword(user.password, password)) {
-                console.log('password wrong')
+
                 return done(null, false, { message: "Incorrect password." });
               }
-              console.log('user found, pass correct')
-              // var userinfo = user.get();
+
+
 
               return done(null, user);
             })

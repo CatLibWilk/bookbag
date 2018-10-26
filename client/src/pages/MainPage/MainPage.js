@@ -14,7 +14,6 @@ class MainPage extends Component {
   };
   
   componentDidMount() {
-    console.log('did mount runs mainpage');
     //setup and handling for dragable resize of iframe
     let resizer = document.querySelector('.resizer'),
         startX, startY, startWidth, startHeight;
@@ -27,7 +26,7 @@ class MainPage extends Component {
 
   initDrag = (e) => {
     let resizeable = document.querySelector('.resizeable');
-    console.log('dragging')
+
     this.startX = e.clientX;
     this.startY = e.clientY;
     this.startWidth = parseInt ( document.defaultView.getComputedStyle(resizeable ).width, 10);
@@ -71,9 +70,9 @@ class MainPage extends Component {
   };
 
   handleDelete = (id, name) => {
-    console.log("delete clicked on mainpage");
-    console.log(id);
-    console.log(name);
+
+
+
 
     switch(name) {
       case "citation":
@@ -89,15 +88,15 @@ class MainPage extends Component {
   };
 
   handleSearch = (e) => {
-    console.log('search function called');
+
     const input = e.target.parentElement.parentElement.firstElementChild;
     const query = {query: input.value};
-    console.log(query);
+
     API.getBibs(query)
         .then( (returned) => {
           if(returned.data.docs.length > 0){
 
-              console.log(returned.data.docs.length)
+
           
           const returnedResources = []
           for(let i = 0; i<5; i++){
@@ -124,7 +123,7 @@ class MainPage extends Component {
                 
               };
               returnedResources.push(newCitation);
-              console.log(returnedResources);
+
             }
 
             catch(err){
@@ -137,15 +136,15 @@ class MainPage extends Component {
         }
         else{
         //   this.setState({returnedResources: this.state.returnedResources})
-          console.log('else')
-          console.log(returned.data.docs.length)
+
+
           this.setState({returnedResources: [], searched: true})
         }
         });
   }
 
   handleSaveCit = (title, creator, url, date) => {
-    console.log(title, creator)
+
     const newCit = {
       title: title,
       author: creator,
@@ -166,15 +165,15 @@ class MainPage extends Component {
 
   handleExpand = () => {
     if(!this.state.viewer_expanded){
-      console.log('expanding')
-      console.log(this.state.viewer_expanded)
-      console.log(typeof(this.state.viewer_expanded))
+
+
+
       document.querySelector('iframe').classList.add('viewer-expand');
       this.setState({viewer_expanded: true})
     }else{
-      console.log('despanding')
-      console.log(this.state.viewer_expanded)
-      console.log(typeof(this.state.viewer_expanded))
+
+
+
       document.querySelector('iframe').classList.remove('viewer-expand');
       this.setState({viewer_expanded: false})
 
@@ -204,7 +203,7 @@ class MainPage extends Component {
           <Input click={this.handleSearch} passedPlaceholder={'Enter a title'} label={'Search'}/>
           <div id="results-div" className="col-lg-10 mx-auto">
               {this.state.returnedResources.length > 0 ? this.state.returnedResources.map(item => {
-                console.log(this.state.returnedResources)
+
                 return (
                   
                   <div>
@@ -223,7 +222,7 @@ class MainPage extends Component {
             <div className="col-lg-6 float-left">
           <h1 className="mt-3 mb-3">Citations</h1>
           {this.state.citations.map(citation => {
-              console.log(citation)
+
             return(
               <div className="citation-container p-3 m-4">
 

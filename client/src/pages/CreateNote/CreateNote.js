@@ -26,7 +26,6 @@ class CreateNote extends Component {
     }
     API.createNote(newNote)
         .then(result => {
-          console.log("resturned from server")
           this.setState({toMainPage: "true"});
         });
   }

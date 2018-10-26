@@ -2,31 +2,29 @@ const db = require("../models");
 
 module.exports = {
     getClusters: function(req, res){
-        console.log("get clusters in dbController reached, req.user info to follow")
+
         db.Cluster.findAll({
             where: {
                 UserId: req.user.id
             }
         }).then(dbClusters => {
-            console.log(dbClusters)
             res.json(dbClusters)
         });
     },
 
     deleteCluster: function(req, res) {
-        console.log(`delete cluster reached in controller, prepare to delete cluster with id = ${req.params.id}`)
+
         db.Cluster.destroy({
             where: {
                 id: req.params.id
             }
         }).then(result => {
-            console.log(result);
             res.json(result);
         })
     },
     
     createCluster: function(req, res) {
-        console.log(`create cluster reached in controller, prepare to create cluster with name = ${req.params.name}`)
+
          db.Cluster.create({
              title: req.params.name,
              UserId: req.user.id
@@ -37,7 +35,7 @@ module.exports = {
     },
 
     getClusterData: function(req, res) {
-        console.log(`getting children of cluster ${req.params.id} in bdController for mainpage`);
+
         const citationPromise = db.Citation.findAll({
             where: {
                 ClusterId: req.params.id
@@ -51,7 +49,6 @@ module.exports = {
 
         Promise.all([citationPromise, notesPromise])
                 .then((returnedData) => {
-                    console.log(returnedData)
                     res.json({
                         returnedData
                     });
@@ -59,8 +56,8 @@ module.exports = {
     },
     
     deleteNote: function (req, res) {
-        console.log("deletenote reached in dbController");
-        console.log(`preparing to delete note with id = ${req.params.id}`)
+
+
         db.Note.destroy({
             where: {
                 id: req.params.id
@@ -72,8 +69,7 @@ module.exports = {
     },
     
     createNote: function (req, res) {
-        console.log("createNote reached in dbController");
-        console.log(req.body);
+
         let newNote = {};
 
         if(req.body.citId){
@@ -107,7 +103,7 @@ module.exports = {
     },
 
     getNote: function(req, res) {
-        console.log(`reached controller and retrieving data for note ${req.params.id}`)
+
         db.Note.findOne({
             where: {
                 id: req.params.id
@@ -133,8 +129,8 @@ module.exports = {
     },
 
     deleteCitation: function (req, res) {
-        console.log("deletecitation reached in dbController");
-        console.log(`preparing to delete citation with id = ${req.params.id}`)
+
+
         db.Note.destroy({
             where: {
                 CitationId: req.params.id
@@ -151,8 +147,7 @@ module.exports = {
     },
 
     createCitation: function (req, res) {
-        console.log("createCitation reached in dbController");
-        console.log(req.body)
+
         db.Citation.create(req.body)
                     .then(response => {
                         res.json(response)
@@ -162,7 +157,7 @@ module.exports = {
 
 
     getCitation: function(req, res) {
-        console.log(`reached controller and retrieving data for citation ${req.params.id}`)
+
         db.Citation.findOne({
             where: {
                 id: req.params.id
